@@ -30,6 +30,7 @@
       rg = "rg --sort path --no-ignore --hidden"; # search content with ripgrep
       rm = "rm -i";
       "vi" = "nvim";
+      "lg" = "lazygit";
     };
     initContent = ''
             autoload -Uz vcs_info
