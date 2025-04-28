@@ -48,6 +48,8 @@
   home-manager.backupFileExtension = "hmBackup";
 
   environment.systemPackages = with pkgs; [
+    nodejs
+    prefetch-npm-deps # see server.nix
     brightnessctl
     cargo
     cliphist

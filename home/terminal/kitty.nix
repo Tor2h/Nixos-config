@@ -33,23 +33,25 @@
       "lg" = "lazygit";
     };
     initContent = ''
-            autoload -Uz vcs_info
+      autoload -Uz vcs_info
 
-            precmd() { vcs_info }
+      precmd() { vcs_info }
 
-            # Format the vcs_info_msg_0_ variable
-            zstyle ':vcs_info:git:*' formats "%b"
+      # Format the vcs_info_msg_0_ variable
+      zstyle ':vcs_info:git:*' formats "%b"
 
-            setopt prompt_subst
+      setopt prompt_subst
 
-            function y() {
-      	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-      	yazi "$@" --cwd-file="$tmp"
-      	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-      		builtin cd -- "$cwd"
-      	fi
-      	rm -f -- "$tmp"
+      function y() {
+        local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+        yazi "$@" --cwd-file="$tmp"
+        if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+          builtin cd -- "$cwd"
+        fi
+        rm -f -- "$tmp"
       }
+
+      fastfetch
 
     '';
     # PROMPT="%B%F{#${config.lib.stylix.colors.base0C}}% "" ❯ %f"

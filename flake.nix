@@ -23,8 +23,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # AGS for widgets
-    ags.url = "github:Aylur/ags/v1";
+    flake-utils.url = "github:numtide/flake-utils";
   };
 
   outputs = { self, nixpkgs, home-manager, stylix, sddm-sugar-candy-nix, ... }@inputs:
