@@ -51,6 +51,22 @@
         rm -f -- "$tmp"
       }
 
+      function vcon() {
+        cd ~/.config/nvim
+      }
+
+      function ncon() {
+        cd ~/nixos
+      }
+
+      function fe() {
+        cd ~/BlueNoteWeb/webApp/angularapp
+      }
+
+      function be() {
+        cd ~/BlueNoteWeb/webApp/webapi
+      }
+
       fastfetch
 
     '';

@@ -30,6 +30,13 @@
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   xdg.portal.configPackages = [ pkgs.xdg-desktop-portal-gtk ];
 
+  environment.systemPackages = with pkgs; [
+    nodejs
+    dotnetCorePackages.sdk_9_0_1xx-bin
+    nodePackages."@angular/cli"
+  ];
+
+
   # home-manager = {
   #   extraSpecialArgs = { inherit inputs; };
   #   users = {

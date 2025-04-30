@@ -21,9 +21,10 @@
 
   # Add stuff for your user as you see fit:
   home.packages = with pkgs; [
-    ddcutil
     btop
+    ddcutil
     discord
+    eza
     fastfetch
     font-awesome
     gimp
