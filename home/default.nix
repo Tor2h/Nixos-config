@@ -24,9 +24,11 @@
     btop
     ddcutil
     discord
+    dunst
     eza
     fastfetch
     font-awesome
+    ghostty
     gimp
     gnome-calculator
     gnome-text-editor

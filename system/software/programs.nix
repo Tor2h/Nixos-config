@@ -55,7 +55,6 @@
     cliphist
     curl
     docker
-    dunst
     ffmpeg-full
     ffmpegthumbnailer
     gcc

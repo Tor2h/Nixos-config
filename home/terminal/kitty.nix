@@ -1,6 +1,13 @@
 { inputs, lib, config, pkgs, ... }: {
   imports = [ ];
 
+  programs.ghostty = {
+    enable = true;
+    settings = {
+      font-size = lib.mkForce 16;
+    };
+  };
+
   programs.kitty = {
     enable = true;
 

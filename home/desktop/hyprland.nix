@@ -103,7 +103,7 @@
         "$mod, SPACE, exec, rofi -show drun -show-icons"
         # "$mod, SPACE, exec, wofi --show drun"
         "$mod, T, exec, thunar"
-        "$mod, RETURN, exec, kitty"
+        "$mod, RETURN, exec, ghostty"
         "$secondMod, L, exec, hyprlock"
 
         # Utility
