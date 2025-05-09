@@ -38,6 +38,7 @@
     hyprpaper
     hyprpicker
     hyprshot
+    jetbrains.rider
     lazydocker
     lazygit
     mpd
@@ -45,6 +46,7 @@
     nerd-fonts.iosevka
     pavucontrol
     playerctl
+    postgresql
     rofi-wayland
     rofi-power-menu
     spotify
@@ -63,6 +65,7 @@
   ];
   stylix.targets.rofi.enable = true;
 
+  nix.settings.download-buffer-size = 524288000;
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
