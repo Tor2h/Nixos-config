@@ -34,6 +34,7 @@
     nodejs
     dotnetCorePackages.sdk_9_0_1xx-bin
     nodePackages."@angular/cli"
+    vscode-js-debug
     netcoredbg
   ];
 
