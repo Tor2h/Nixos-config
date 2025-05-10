@@ -4,6 +4,7 @@
     ./hypridle.nix
     ./hyprpaper.nix
     ./waybar.nix
+    ./rofi.nix
   ];
 
   # Notification daemon
@@ -15,23 +16,6 @@
       corner_radius = "12";
       padding = "12";
       horizontal_padding = "12";
-    };
-  };
-
-  # Launcher
-  stylix.targets.tofi.enable = true;
-  programs.tofi = {
-    enable = true;
-
-    settings = {
-      anchor = "bottom-left";
-      corner-radius = "10";
-      prompt-background-corner-radius = "10";
-      margin-left = "40";
-      margin-bottom = "90";
-      outline-width = "0";
-      width = "30%";
-      height = "40%";
     };
   };
 }

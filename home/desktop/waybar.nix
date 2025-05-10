@@ -22,6 +22,7 @@
           "memory"
           "network"
           "tray"
+          "custom/power"
         ];
 
         "mpris" = {
@@ -145,6 +146,12 @@
           format = "  {}%";
         };
 
+        "custom/power" = {
+          tooltip = false;
+          on-click = "wlogout &";
+          format = "󰐥";
+        };
+
       };
     };
     style = lib.mkAfter ''
@@ -166,7 +173,8 @@
                 #cpu,
                 #memory,
                 #network,
-                #tray
+                #tray,
+                #custom-power
                 {
                   border-radius: 5px;
                   padding-left: 0px;
@@ -185,8 +193,21 @@
                   margin-bottom: 5px;
                 }
 
-                #tray {
+                #custom-power {
+                  margin-left: 10px;
+                  padding-left: 20px;
+                  border-left: 1px solid @base06;
+                  margin-top: 5px;
+                  margin-bottom: 5px;
                   margin-right: 20px;
+                }
+
+                #tray {
+                  margin-left: 10px;
+                  padding-left: 20px;
+                  border-left: 1px solid @base06;
+                  margin-top: 5px;
+                  margin-bottom: 5px;
                 }
 
                 #mpris {

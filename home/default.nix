@@ -56,6 +56,7 @@
     vlc
     waybar
     wl-clipboard
+    wlogout
     wofi
     xfce.thunar
     xfce.thunar-volman
