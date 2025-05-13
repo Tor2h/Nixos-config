@@ -5,6 +5,7 @@
     ./hyprpaper.nix
     ./waybar.nix
     ./rofi.nix
+    ./wlogout.nix
   ];
 
   # Notification daemon

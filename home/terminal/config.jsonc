@@ -23,6 +23,8 @@
   "logo": {
     "source": "$XDG_CONFIG_HOME/fastfetch/image.txt",
     "type": "file",
+    "width": 10,
+    "height": 10,
     "color": {
       "1": "red",
       "2": "green",

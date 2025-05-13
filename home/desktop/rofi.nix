@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, config, ... }:
 {
   programs.rofi = {
     enable = true;
@@ -13,6 +13,30 @@
       display-drun = " Apps: ";
       display-run = " Run: ";
       display-filebrowser = " File: ";
+    };
+    theme = {
+      window = {
+        width = 500;
+      };
+      listview = {
+        enabled = true;
+        columns = 1;
+        dynamic = true;
+        scrollbar = false;
+        layout = "vertical";
+        fixed-height = true;
+        fixed-columns = true;
+      };
+      inputbar = {
+        padding = 10;
+      };
+      element = {
+        padding = 10;
+        spacing = 10;
+      };
+      "element-icon" = {
+        size = 24;
+      };
     };
   };
 }

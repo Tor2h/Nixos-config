@@ -39,6 +39,10 @@
         border_size = 3;
         gaps_in = 0;
         gaps_out = 0;
+        "col.active_border" = lib.mkForce "rgb(${config.lib.stylix.colors.base0D})";
+        # "col.active_border" = lib.mkForce "rgba(33ccffee)";
+        "col.inactive_border" = lib.mkForce "rgb(${config.lib.stylix.colors.base01})";
+        # "col.inactive_border" = lib.mkForce "rgba(595959aa)";
         # col.inactive_border = "0xff000000"; #rgb(${base02});
       };
       # Decoration
@@ -173,11 +177,11 @@
 
       animations = {
         enabled = 1;
-        bezier = "overshot,0.13,0.99,0.29,1.1,";
+        bezier = "fade,0.79,0.33,0.14,0.53,";
         animation = [
-          "fade,1,4,default"
-          "workspaces,1,4,default,fade"
-          "windows,1,4,overshot,popin 95%"
+          "fade,1,2,default"
+          "workspaces,1,2,default,fade"
+          "windows,1,1,fade,popin 95%"
         ];
       };
 
@@ -190,3 +194,4 @@
     };
   };
 }
+

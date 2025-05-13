@@ -1,9 +1,6 @@
 { inputs, lib, config, pkgs, ... }: {
   imports = [
-    # various config files
     ./kitty.nix
-    # ./fish.nix
-    # ./starship.nix
   ];
   config = {
     programs.fastfetch = {
@@ -135,10 +132,10 @@
               outputColor = "blue";
               format = ''└────────────────────────────────────────┘'';
             }
-            # {
-            #   type = "custom";
-            #   format = "   {#39}   {#34}    {#36}    {#35}    {#34}    {#33}    {#32}    {#31} ";
-            # }
+            {
+              type = "custom";
+              format = "   {#39}󰝤   {#34}󰝤    {#36}󰝤    {#35}󰝤    {#34}󰝤    {#33}󰝤    {#32}󰝤    {#31}󰝤 ";
+            }
             # "break"
           ];
       };

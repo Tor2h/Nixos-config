@@ -182,13 +182,13 @@
                   margin-top: 0px;
                   margin-right: 10px;
                   margin-bottom: 0px;
-                  color: @base06;
+                  color: @base0D;
                 }
 
                 #clock, #custom-backlight {
                   padding-right: 20px;
                   margin-right: 20px;
-                  border-right: 1px solid @base06;
+                  border-right: 1px solid @base0D;
                   margin-top: 5px;
                   margin-bottom: 5px;
                 }
@@ -196,7 +196,7 @@
                 #custom-power {
                   margin-left: 10px;
                   padding-left: 20px;
-                  border-left: 1px solid @base06;
+                  border-left: 1px solid @base0D;
                   margin-top: 5px;
                   margin-bottom: 5px;
                   margin-right: 20px;
@@ -205,7 +205,7 @@
                 #tray {
                   margin-left: 10px;
                   padding-left: 20px;
-                  border-left: 1px solid @base06;
+                  border-left: 1px solid @base0D;
                   margin-top: 5px;
                   margin-bottom: 5px;
                 }
@@ -222,11 +222,11 @@
                   margin-left: 5px;
                   margin-bottom: 5px;
                   background: @base01;
-                  color: @base06;
+                  color: @base0D;
                 }
 
                  #workspaces button.active {
-                  background: @base06;
+                  background: @base0D;
                   color: @base01;
       }
       #workspaces button.persistent {
