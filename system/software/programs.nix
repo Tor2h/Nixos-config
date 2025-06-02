@@ -17,7 +17,11 @@
     enable = true;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
+    extraCompatPackages = [ pkgs.proton-ge-bin ];
+    gamescopeSession.enable = true;
   };
+
+  programs.gamemode.enable = true;
 
   programs.firefox.enable = true;
 
@@ -39,6 +43,19 @@
     trezord.enable = true;
   };
 
+  programs.git = {
+    enable = true;
+    config = {
+      user.name = "tor2h";
+      user.email = "tor.holm@live.dk";
+      init.defaultBranch = "main";
+    };
+  };
+
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+  };
 
   programs.dconf.enable = true;
   programs.light.enable = true;
@@ -58,14 +75,14 @@
     ffmpeg-full
     ffmpegthumbnailer
     gcc
-    git
     gnutar
     grimblast
     gzip
+    heroic
     kitty
     libnotify
     lua
-    neovim
+    lutris
     nil
     nodejs
     ripgrep

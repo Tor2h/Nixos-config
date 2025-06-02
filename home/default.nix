@@ -33,7 +33,6 @@
     gnome-calculator
     gnome-text-editor
     gnome-system-monitor
-    hypridle
     hyprlock
     hyprpaper
     hyprpicker
