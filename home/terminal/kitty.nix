@@ -74,6 +74,8 @@
         cd ~/BlueNoteWeb/webApp/webapi
       }
 
+      export MANPAGER='nvim +Man!'
+
       fastfetch
 
     '';
