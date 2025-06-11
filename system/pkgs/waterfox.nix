@@ -15,16 +15,21 @@ stdenv.mkDerivation rec {
   buildInputs = [ ];
 
   configurePhase = ''
-    export SHELL=/bin/sh
+    echo "sourceRoot: $sourceRoot"
+    pwd
+    ls -l
+    # export SHELL=/bin/sh
     ./mach configure
   '';
 
   buildPhase = ''
     # Waterfox uses a Mozilla-style build system
+    cd $sourceRoot
     ./mach build
   '';
 
   installPhase = ''
+    cd $sourceRoot
     mkdir -p $out/bin
     cp -r obj-*/dist/bin/* $out/bin/
   '';
