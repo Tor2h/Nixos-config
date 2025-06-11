@@ -52,12 +52,21 @@
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   xdg.portal.configPackages = [ pkgs.xdg-desktop-portal-gtk ];
 
+  nixpkgs.overlays = [
+    (self: super: {
+      waterfox = import ./pkgs/waterfox.nix {
+        inherit (super) stdenv fetchFromGitHub python3 rust cmake pkg-config yasm;
+      };
+    })
+  ];
+
   environment.systemPackages = with pkgs; [
     nodejs
     dotnetCorePackages.sdk_9_0_1xx-bin
     nodePackages."@angular/cli"
     vscode-js-debug
     netcoredbg
+    waterfox
   ];
 
   programs.nix-ld.enable = true;
