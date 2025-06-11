@@ -55,7 +55,7 @@
   nixpkgs.overlays = [
     (self: super: {
       waterfox = import ./pkgs/waterfox.nix {
-        inherit (super) stdenv fetchFromGitHub python3 rust cmake pkg-config yasm;
+        inherit (super) stdenv fetchgit python3 rustc autoconf213 pkg-config yasm lib git;
       };
     })
   ];

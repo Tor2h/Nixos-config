@@ -1,18 +1,23 @@
-{ stdenv, fetchFromGitHub, python3, rust, cmake, pkg-config, yasm, ... }:
+{ stdenv, fetchgit, python3, rustc, autoconf213, pkg-config, yasm, lib, git, ... }:
 
 stdenv.mkDerivation rec {
   pname = "waterfox";
-  version = "master"; # Replace with desired version
+  version = "6.5.9"; # Replace with desired version
 
-  src = fetchFromGitHub {
-    owner = "WaterfoxCo";
-    repo = "Waterfox";
-    rev = "master"; # Replace with desired version tag
-    sha256 = "0000000000000000000000000000000000000000000000000000"; # Replace with correct hash
+  src = fetchgit {
+    url = "https://github.com/WaterfoxCo/Waterfox";
+    rev = "4b4341d754042bc90a242a612ee926fb8918d4d4"; # commit for 6.5.9
+    sha256 = "sha256-m45xx0ufNyR4UgRRDz48P/R6NVi+jMm2KCScZYyX+rI="; # Replace with correct hash
+    fetchSubmodules = false;
   };
 
-  nativeBuildInputs = [ python3 rust cmake pkg-config yasm ];
+  nativeBuildInputs = [ python3 rustc autoconf213 pkg-config yasm git ];
   buildInputs = [ ];
+
+  configurePhase = ''
+    export SHELL=/bin/sh
+    ./mach configure
+  '';
 
   buildPhase = ''
     # Waterfox uses a Mozilla-style build system
@@ -21,13 +26,14 @@ stdenv.mkDerivation rec {
 
   installPhase = ''
     mkdir -p $out/bin
-    cp -r obj-x86_64-pc-linux-gnu/dist/bin/* $out/bin/
+    cp -r obj-*/dist/bin/* $out/bin/
   '';
 
-  meta = with stdenv.lib; {
+  meta = {
     description = "The Waterfox web browser";
     homepage = "https://www.waterfox.net/";
-    license = licenses.mpl20;
-    platforms = platforms.linux;
+    license = lib.licenses.mpl20;
+    platforms = lib.platforms.linux;
   };
 }
+
