@@ -17,6 +17,7 @@
     theme = {
       window = {
         width = 500;
+        border = 1;
       };
       listview = {
         enabled = true;
@@ -26,9 +27,11 @@
         layout = "vertical";
         fixed-height = true;
         fixed-columns = true;
+        border = 1;
       };
       inputbar = {
         padding = 10;
+        border = 1;
       };
       element = {
         padding = 10;

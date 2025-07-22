@@ -43,6 +43,7 @@
     mpd
     neofetch
     nerd-fonts.iosevka
+    nvtopPackages.nvidia
     pavucontrol
     playerctl
     postgresql

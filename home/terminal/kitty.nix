@@ -28,6 +28,7 @@
   programs.zsh = {
     enable = true;
     shellAliases = {
+      "python" = "python3";
       cat = "bat --theme=base16";
       "cd.." = "cd ..";
       grep = "grep --color=auto";

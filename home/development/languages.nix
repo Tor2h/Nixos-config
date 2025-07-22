@@ -13,6 +13,7 @@
     nodePackages.vscode-langservers-extracted # HTML/CSS/JSON
     nodePackages.eslint # JavaScript linter
     stylelint # CSS/SCSS linter
+    python314
 
     # Code formatters
     nodePackages.prettier # Javascript / css / html etc
