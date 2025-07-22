@@ -8,8 +8,8 @@
   services.hyprpaper = {
     enable = true;
     settings = {
-      preload = [ "~/nixos/images/miator_17.png" ];
-      wallpaper = [ ",~/nixos/images/miator_17.png" ];
+      preload = [ "~/nixos/images/miator_39.png" ];
+      wallpaper = [ ",~/nixos/images/miator_39.png" ];
 
       ipc = "on";
       splash = false;
