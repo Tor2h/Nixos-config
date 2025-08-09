@@ -85,6 +85,7 @@
     lutris
     nil
     nodejs
+    qmk
     ripgrep
     unzip
     wget
