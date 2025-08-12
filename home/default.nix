@@ -49,8 +49,6 @@
     postgresql
     rofi-wayland
     rofi-power-menu
-    spotify
-    spotify-qt
     steam
     steam-run
     vim

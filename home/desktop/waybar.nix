@@ -36,8 +36,6 @@
           "player-icons" = {
             "default" = "▶";
             "mpv" = "🎵";
-            "spotify" = " ";
-            "spotify-player" = " ";
             "firefox" = "";
           };
           "status-icons" = {
