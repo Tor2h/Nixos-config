@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, inputs, ... }: {
   imports = [ ];
 
   # Allow unfree packages
@@ -113,6 +113,7 @@
     grim
     slurp
     swaybg
+    inputs.mangowc.packages.${pkgs.system}.mangowc
     #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   ];
 

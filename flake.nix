@@ -20,10 +20,7 @@
 
     flake-utils.url = "github:numtide/flake-utils";
 
-    mango = {
-      url = "github:DreamMaoMao/mango";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    mangowc.url = "github:DreamMaoMao/mangowc";
 
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
@@ -35,7 +32,7 @@
     # };
   };
 
-  outputs = { self, nixpkgs, home-manager, stylix, sddm-sugar-candy-nix, mango, flake-parts, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, stylix, sddm-sugar-candy-nix, flake-parts, mangowc, ... }@inputs:
     let
       inherit (self) outputs;
       defaultWallpaper = ./images/miator_39.jpg;
@@ -54,10 +51,10 @@
             # Stylix
             stylix.nixosModules.stylix
 
-            mango.nixosModules.mango
-            {
-              programs.mango.enable = true;
-            }
+            # mango.nixosModules.mango
+            # {
+            #   programs.mango.enable = true;
+            # }
             # mangowc.nixosModules.mango
 
             home-manager.nixosModules.home-manager

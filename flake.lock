@@ -179,7 +179,7 @@
     "flake-utils_2": {
       "inputs": {
         "systems": [
-          "mango",
+          "mangowc",
           "scenefx",
           "systems"
         ]
@@ -341,40 +341,38 @@
         "type": "github"
       }
     },
-    "mango": {
+    "mangowc": {
       "inputs": {
         "flake-parts": "flake-parts_2",
-        "nixpkgs": [
-          "nixpkgs"
-        ],
+        "nixpkgs": "nixpkgs",
         "scenefx": "scenefx"
       },
       "locked": {
         "lastModified": 1762960209,
         "narHash": "sha256-hSBtM2DRy4z/JwJMQ40wsl2VyJJrbuspytefGBgK//E=",
         "owner": "DreamMaoMao",
-        "repo": "mango",
+        "repo": "mangowc",
         "rev": "ade00f88f016ec796ae21382c929dcddee452c5f",
         "type": "github"
       },
       "original": {
         "owner": "DreamMaoMao",
-        "repo": "mango",
+        "repo": "mangowc",
         "type": "github"
       }
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1746663147,
-        "narHash": "sha256-Ua0drDHawlzNqJnclTJGf87dBmaO/tn7iZ+TCkTRpRc=",
-        "owner": "nixos",
+        "lastModified": 1750386251,
+        "narHash": "sha256-1ovgdmuDYVo5OUC5NzdF+V4zx2uT8RtsgZahxidBTyw=",
+        "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "dda3dcd3fe03e991015e9a74b22d35950f264a54",
+        "rev": "076e8c6678d8c54204abcb4b1b14c366835a58bb",
         "type": "github"
       },
       "original": {
-        "owner": "nixos",
-        "ref": "nixos-unstable",
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -395,6 +393,22 @@
       }
     },
     "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1746663147,
+        "narHash": "sha256-Ua0drDHawlzNqJnclTJGf87dBmaO/tn7iZ+TCkTRpRc=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "dda3dcd3fe03e991015e9a74b22d35950f264a54",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_3": {
       "locked": {
         "lastModified": 1745930157,
         "narHash": "sha256-y3h3NLnzRSiUkYpnfvnS669zWZLoqqI6NprtLQ+5dck=",
@@ -438,8 +452,8 @@
         "flake-parts": "flake-parts",
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",
-        "mango": "mango",
-        "nixpkgs": "nixpkgs",
+        "mangowc": "mangowc",
+        "nixpkgs": "nixpkgs_2",
         "sddm-sugar-candy-nix": "sddm-sugar-candy-nix",
         "stylix": "stylix"
       }
@@ -448,7 +462,7 @@
       "inputs": {
         "flake-utils": "flake-utils_2",
         "nixpkgs": [
-          "mango",
+          "mangowc",
           "nixpkgs"
         ],
         "systems": "systems_2"
@@ -499,7 +513,7 @@
         "git-hooks": "git-hooks",
         "gnome-shell": "gnome-shell",
         "home-manager": "home-manager_2",
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": "nixpkgs_3",
         "nur": "nur",
         "systems": "systems_3",
         "tinted-foot": "tinted-foot",
