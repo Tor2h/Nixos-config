@@ -27,17 +27,21 @@
     dunst
     eza
     fastfetch
+    feh
     font-awesome
+    freerdp
     ghostty
     gimp
     gnome-calculator
     gnome-text-editor
     gnome-system-monitor
+    harlequin
     hyprlock
     hyprpaper
     hyprpicker
     hyprshot
     jetbrains.rider
+    kmod
     lazydocker
     lazygit
     mpd
@@ -45,13 +49,16 @@
     nerd-fonts.iosevka
     nvtopPackages.nvidia
     pavucontrol
+    pciutils
     playerctl
     postgresql
+    qemu
     rofi-wayland
     rofi-power-menu
     steam
     steam-run
     vim
+    virt-manager
     vlc
     waybar
     wl-clipboard

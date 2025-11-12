@@ -70,7 +70,7 @@
         };
 
         "clock" = {
-          "format" = "󰃭  {:%m/%d   %H:%M}";
+          "format" = "󰃭  {:%d/%m   %H:%M}";
           "tooltip-format" = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
         };
 
@@ -102,13 +102,18 @@
         };
 
         "custom/backlight" = {
-          exec = "ddcutil -b 8 getvcp 10 -t | perl -nE 'if (/ C (\\d+) /) { say $1; }'";
+          exec = "ddcutil -b 10 getvcp 10 -t | perl -nE 'if (/ C (\\d+) /) { say $1; }'";
           exec-if = "sleep 1";
           format = "{icon} {}%";
           format-icons = [ "" ];
+          # return-type = "json";
+          # exec = "ddcutil --bus 8 getvcp 10 | grep -oP 'current.*?=\\s*\\K[0-9]+' | { read x; echo \"{\\\"percentage\\\":$x}\"; }";
+          on-scroll-up = "ddcutil --noverify --bus 10 setvcp 10 + 5";
+          on-scroll-down = "ddcutil --noverify --bus 10 setvcp 10 - 5";
+          on-click = "ddcutil --noverify --bus 10 setvcp 10 + 10";
+          on-click-right = "ddcutil --noverify --bus 10 setvcp 10 - 10";
           interval = "once";
-          on-scroll-up = "ddcutil setvcp 10 + 5";
-          on-scroll-down = "ddcutil setvcp 10 - 5";
+          tooltip = false;
         };
 
         "pulseaudio" = {

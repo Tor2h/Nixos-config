@@ -84,10 +84,11 @@
         ", XFl86MonBrightnessUp, exec, brightnessctl s 10%+"
         ", XF86MonBrightnessDown, exec, brightnessctl s 10%-"
         # # Window rules
-        # "$mod CONTROL, h, resizeactive, -50 0"
-        # "$mod CONTROL, j, resizeactive, 0 50"
-        # "$mod CONTROL, k, resizeactive, 0 -50"
-        # "$mod CONTROL, l, resizeactive, 50 0"
+        "$mod CONTROL, h, exec, hyprctl dispatch resizeactive -50 0; hyprctl dispatch centerwindow"
+        "$mod CONTROL, l, exec, hyprctl dispatch resizeactive 50 0; hyprctl dispatch centerwindow"
+        "$mod CONTROL, j, exec, hyprctl dispatch resizeactive 0 50; hyprctl dispatch centerwindow"
+        "$mod CONTROL, k, exec, hyprctl dispatch resizeactive 0 -50; hyprctl dispatch centerwindow"
+
       ];
 
       bindl = [
@@ -128,12 +129,13 @@
 
         # "$mod, c, centerwindow, 1"
 
-        "$secondMod, q, killactive"
-        "$secondMod, f, fullscreen, 0"
+        "$mod, q, killactive"
+        # "$secondMod, f, fullscreen, 0"
         "$secondMod, f, fullscreen, 1"
         "$mod, tab, cyclenext"
         "$mod SHIFT, tab, cyclenext, prev"
-        "$secondMod, SPACE, togglefloating"
+        "$secondMod, SPACE, exec, hyprctl dispatch togglefloating; hyprctl dispatch resizeactive exact 1500 1200; hyprctl dispatch centerwindow"
+        "$secondMod, t, settiled"
 
         "$mod, x, workspace, 1"
         "$mod, c, workspace, 2"

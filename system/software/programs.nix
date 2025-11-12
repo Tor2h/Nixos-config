@@ -13,6 +13,10 @@
     EDITOR = "nvim";
   };
 
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
+  users.groups.libvirtd.members = [ "tor" ];
+
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
@@ -74,24 +78,36 @@
     docker
     ffmpeg-full
     ffmpegthumbnailer
+    fzf
     gcc
     gnutar
     grimblast
     gzip
     heroic
+    hyprpaper
     kitty
     libnotify
+    librewolf
+    libreoffice-qt
+    hunspell
+    hunspellDicts.uk_UA
+    hunspellDicts.th_TH
     lua
     lutris
     nil
     nodejs
+    ollama
+    pcsx2
+    polkit_gnome
+    p7zip
     qmk
     ripgrep
+    tdf
     unzip
     wget
+    zathura
     zig
     zoxide
-    polkit_gnome
     #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     #  wget
   ];

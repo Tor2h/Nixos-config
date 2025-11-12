@@ -4,7 +4,10 @@
   programs.ghostty = {
     enable = true;
     settings = {
-      font-size = lib.mkForce 16;
+      font-size = lib.mkForce 18;
+      window-padding-x = lib.mkForce 10;
+      window-padding-y = lib.mkForce 10;
+      window-padding-balance = true;
     };
   };
 
@@ -39,6 +42,7 @@
       rm = "rm -i";
       "vi" = "nvim";
       "lg" = "lazygit";
+      update = "sudo nixos-rebuild switch --flake ~/nixos\#udev";
     };
     initContent = ''
       autoload -Uz vcs_info

@@ -12,11 +12,6 @@
 
     stylix.url = "github:danth/stylix";
 
-    # hyprland = {
-    #   url = "github:hyprwm/hyprland";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-
     sddm-sugar-candy-nix = {
       url = "gitlab:Zhaith-Izaliel/sddm-sugar-candy-nix";
       # Optional, by default this flake follows nixpkgs-unstable.

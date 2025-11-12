@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { connixfig, pkgs, inputs, ... }:
 
 {
@@ -46,8 +42,6 @@
   # Configure console keymap
   console.keyMap = "dk-latin1";
 
-
-
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   xdg.portal.configPackages = [ pkgs.xdg-desktop-portal-gtk ];
@@ -65,22 +59,8 @@
     netcoredbg
   ];
 
-  # home-manager = {
-  #   extraSpecialArgs = { inherit inputs; };
-  #   users = {
-  #     "tor" = import ./home.nix;
-  #   };
-  # };
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
