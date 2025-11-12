@@ -16,7 +16,7 @@
       windowrulev2 = [
         "suppressevent maximize, class:.*"
         "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
-        "float, title:^(Firrfox — Sharing Indicator)$"
+        "float, title:^(Firefox — Sharing Indicator)$"
         "noborder, title:^(Firefox — Sharing Indicator)$"
         "rounding 0, title:^(Firefox — Sharing Indicator)$"
         "float, class:^(firefox)$, title:^(Picture-in-Picture)$"

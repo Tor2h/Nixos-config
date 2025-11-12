@@ -19,9 +19,14 @@
     };
 
     flake-utils.url = "github:numtide/flake-utils";
+
+    mangowc = {
+      url = "github:DreamMaoMao/mangowc";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, stylix, sddm-sugar-candy-nix, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, stylix, sddm-sugar-candy-nix, mangowc, ... }@inputs:
     let
       inherit (self) outputs;
       defaultWallpaper = ./images/miator_39.jpg;
@@ -39,6 +44,8 @@
 
             # Stylix
             stylix.nixosModules.stylix
+
+            mangowc.nixosModules.default
 
             home-manager.nixosModules.home-manager
             {
