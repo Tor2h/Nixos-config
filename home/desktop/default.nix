@@ -3,7 +3,6 @@
     ./hyprland.nix
     ./hypridle.nix
     ./hyprpaper.nix
-    ./mangowc.nix
     ./rofi.nix
     ./waybar.nix
     ./wlogout.nix

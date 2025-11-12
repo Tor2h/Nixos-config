@@ -100,6 +100,26 @@
     },
     "flake-parts": {
       "inputs": {
+        "nixpkgs-lib": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1762810396,
+        "narHash": "sha256-dxFVgQPG+R72dkhXTtqUm7KpxElw3u6E+YlQ2WaDgt8=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "0bdadb1b265fb4143a75bd1ec7d8c915898a9923",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "type": "github"
+      }
+    },
+    "flake-parts_2": {
+      "inputs": {
         "nixpkgs-lib": "nixpkgs-lib"
       },
       "locked": {
@@ -116,7 +136,7 @@
         "type": "github"
       }
     },
-    "flake-parts_2": {
+    "flake-parts_3": {
       "inputs": {
         "nixpkgs-lib": [
           "stylix",
@@ -159,7 +179,7 @@
     "flake-utils_2": {
       "inputs": {
         "systems": [
-          "mangowc",
+          "mango",
           "scenefx",
           "systems"
         ]
@@ -321,9 +341,9 @@
         "type": "github"
       }
     },
-    "mangowc": {
+    "mango": {
       "inputs": {
-        "flake-parts": "flake-parts",
+        "flake-parts": "flake-parts_2",
         "nixpkgs": [
           "nixpkgs"
         ],
@@ -333,13 +353,13 @@
         "lastModified": 1762960209,
         "narHash": "sha256-hSBtM2DRy4z/JwJMQ40wsl2VyJJrbuspytefGBgK//E=",
         "owner": "DreamMaoMao",
-        "repo": "mangowc",
+        "repo": "mango",
         "rev": "ade00f88f016ec796ae21382c929dcddee452c5f",
         "type": "github"
       },
       "original": {
         "owner": "DreamMaoMao",
-        "repo": "mangowc",
+        "repo": "mango",
         "type": "github"
       }
     },
@@ -392,7 +412,7 @@
     },
     "nur": {
       "inputs": {
-        "flake-parts": "flake-parts_2",
+        "flake-parts": "flake-parts_3",
         "nixpkgs": [
           "stylix",
           "nixpkgs"
@@ -415,9 +435,10 @@
     },
     "root": {
       "inputs": {
+        "flake-parts": "flake-parts",
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",
-        "mangowc": "mangowc",
+        "mango": "mango",
         "nixpkgs": "nixpkgs",
         "sddm-sugar-candy-nix": "sddm-sugar-candy-nix",
         "stylix": "stylix"
@@ -427,7 +448,7 @@
       "inputs": {
         "flake-utils": "flake-utils_2",
         "nixpkgs": [
-          "mangowc",
+          "mango",
           "nixpkgs"
         ],
         "systems": "systems_2"
