@@ -11,7 +11,10 @@
   '';
 
   services.xserver.enable = true;
-  services.xserver.displayManager.sddm.enable = true;
+  # services.xserver.displayManager.sddm.enable = true;
+  # services.displayManager.sddm.enable = true;
+  services.xserver.desktopManager.gnome.enable = false;
+  services.xserver.desktopManager.plasma5.enable = false;
 
   services.displayManager.sddm = {
     enable = true; # Enable SDDM.
