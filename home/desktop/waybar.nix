@@ -13,7 +13,7 @@
         modules-left = [
           "mpris"
         ];
-        modules-center = [ "hyprland/workspaces" ];
+        modules-center = [ "mango/workspaces" ];
         modules-right = [
           "clock"
           "pulseaudio"
@@ -74,7 +74,7 @@
           "tooltip-format" = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
         };
 
-        "hyprland/workspaces" = {
+        "mango/workspaces" = {
           format = "{name}";
           tooltip = "true";
           all-outputs = false; # Required for persistent-workspaces to work

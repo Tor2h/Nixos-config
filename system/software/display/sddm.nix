@@ -1,5 +1,8 @@
 { config, pkgs, lib, defaultWallpaper, ... }: {
   # Set the sddm theme
+  services.xserver.displayManager.sessionPackages = [
+    inputs.mangowc.packages.${pkgs.system}.default
+  ];
   services.displayManager.sddm = {
     enable = true; # Enable SDDM.
     wayland.enable = true;
