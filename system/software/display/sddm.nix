@@ -1,8 +1,18 @@
 { config, pkgs, lib, defaultWallpaper, ... }: {
   # Set the sddm theme
-  services.xserver.displayManager.sessionPackages = [
-    inputs.mangowc.packages.${pkgs.system}.default
-  ];
+
+  environment.etc."wayland-sessions/mango.desktop".text = ''
+    [Desktop Entry]
+    Name=Mango
+    Comment=Start Mangowc Wayland Compositor
+    Exec=mango
+    Type=Application
+    DesktopNames=Mango
+  '';
+
+  services.xserver.enable = true;
+  services.xserver.displayManager.sddm.enable = true;
+
   services.displayManager.sddm = {
     enable = true; # Enable SDDM.
     wayland.enable = true;
