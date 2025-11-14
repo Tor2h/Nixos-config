@@ -1,6 +1,41 @@
-{ connixfig, pkgs, inputs, ... }:
-
+{ connixfig, config, pkgs, inputs, lib, defaultWallpaper, ... }:
+let
+  mangoDesktop = pkgs.writeText "mango-desktop" ''
+    [Desktop Entry]
+    Type=Application
+    Name=Mango
+    Comment=Mango Wayland Compositor
+    Exec=mango
+    TryExec=mango
+    DesktopNames=Mango
+  '';
+  mangoDesktopPath = "${pkgs.runtimeShell}/bin/runtimeShell -E 'export XDG_DATA_DIRS=${pkgs.lib.makeLibraryPath [ mangoDesktop ]}:$XDG_DATA_DIRS'";
+in
 {
+  environment.sessionVariables = {
+    XDG_DATA_DIRS = mangoDesktopPath;
+  };
+
+  nixpkgs.overlays = [
+    (self: super: {
+      xdg-desktop-portal = super.xdg-desktop-portal.overrideAttrs (oldAttrs: {
+        postInstall = ''
+          ${oldAttrs.postInstall or ""}
+          mkdir -p $out/share/wayland-sessions
+          cp ${./mango.desktop} $out/share/wayland-sessions/mango.desktop
+        '';
+      });
+
+      sddm = super.sddm.overrideAttrs (oldAttrs: {
+        postInstall = ''
+          ${oldAttrs.postInstall or ""}
+          mkdir -p $out/share/wayland-sessions
+          cp ${./mango.desktop} $out/share/wayland-sessions/mango.desktop
+        '';
+      });
+    })
+  ];
+
   imports =
     [
       # Include the results of the hardware scan.
@@ -35,6 +70,53 @@
     };
   };
 
+  services.displayManager.sddm = {
+    enable = true; # Enable SDDM.
+    wayland.enable = true;
+    enableHidpi = true;
+    sugarCandyNix = {
+      enable = true;
+      settings = {
+        # General settings
+        Background = lib.cleanSource defaultWallpaper;
+        ScreenWidth = 2560;
+        ScreenHeight = 1440;
+        Font = "Iosevka nerd font";
+        # Form settings
+        HeaderText = "Welcome!";
+        FormPosition = "left";
+        HaveFormBackground = true;
+        PartialBlur = true;
+        # Customize colors
+        BackgroundColor = "#0c0b11";
+        MainColor = "#908caa";
+        AccentColor = "#9ccfd8";
+      };
+    };
+  };
+
+  # nixpkgs.overlays = [
+  #   (self: super: {
+  #     sddm = super.sddm.overrideAttrs (oldAttrs: {
+  #       postInstall = ''
+  #         ${oldAttrs.postInstall or ""}
+  #         mkdir -p $out/share/wayland-sessions
+  #         cp ${./mango.desktop} $out/share/wayland-sessions/mango.desktop
+  #       '';
+  #     });
+  #   })
+  # ];
+  #
+  # environment.etc."wayland-sessions/mango.desktop".text = ''
+  #   [Desktop Entry]
+  #   Type=Application
+  #   Name=Mango
+  #   Comment=Mango Wayland Compositor
+  #   Exec=mango
+  #   TryExec=mango
+  #   DesktopNames=Mango
+  # '';
+
 
   # Enable the KDE Plasma Desktop Environment.
   # services.desktopManager.plasma6.enable = true;
@@ -52,6 +134,8 @@
     nodePackages."@angular/cli"
     vscode-js-debug
     netcoredbg
+    inputs.mangowc.packages.${pkgs.system}.mango
+    mangoDesktop
   ];
 
   programs.nix-ld.enable = true;

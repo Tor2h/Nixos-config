@@ -32,7 +32,7 @@
     enable = true;
     shellAliases = {
       "python" = "python3";
-      cat = "bat --theme=base16";
+      # cat = "bat --theme=base16";
       "cd.." = "cd ..";
       grep = "grep --color=auto";
       jctl = "journalctl -p 3 -xb"; # get the error messages from journalctl
