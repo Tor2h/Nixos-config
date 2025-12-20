@@ -32,7 +32,7 @@
     enable = true;
     shellAliases = {
       "python" = "python3";
-      # cat = "bat --theme=base16";
+      cat = "bat --theme=base16";
       "cd.." = "cd ..";
       grep = "grep --color=auto";
       jctl = "journalctl -p 3 -xb"; # get the error messages from journalctl
@@ -72,11 +72,11 @@
       }
 
       function fe() {
-        cd ~/BlueNoteWeb/webApp/angularapp
+        cd ~/rusty_note/frontend
       }
 
       function be() {
-        cd ~/BlueNoteWeb/webApp/webapi
+        cd ~/rusty_note/backend
       }
 
       export MANPAGER='nvim +Man!'

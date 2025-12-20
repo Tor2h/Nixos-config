@@ -1,41 +1,5 @@
-{ connixfig, config, pkgs, inputs, lib, defaultWallpaper, ... }:
-let
-  mangoDesktop = pkgs.writeText "mango-desktop" ''
-    [Desktop Entry]
-    Type=Application
-    Name=Mango
-    Comment=Mango Wayland Compositor
-    Exec=mango
-    TryExec=mango
-    DesktopNames=Mango
-  '';
-  mangoDesktopPath = "${pkgs.runtimeShell}/bin/runtimeShell -E 'export XDG_DATA_DIRS=${pkgs.lib.makeLibraryPath [ mangoDesktop ]}:$XDG_DATA_DIRS'";
-in
+{ config, pkgs, inputs, lib, defaultWallpaper, ... }:
 {
-  environment.sessionVariables = {
-    XDG_DATA_DIRS = mangoDesktopPath;
-  };
-
-  nixpkgs.overlays = [
-    (self: super: {
-      xdg-desktop-portal = super.xdg-desktop-portal.overrideAttrs (oldAttrs: {
-        postInstall = ''
-          ${oldAttrs.postInstall or ""}
-          mkdir -p $out/share/wayland-sessions
-          cp ${./mango.desktop} $out/share/wayland-sessions/mango.desktop
-        '';
-      });
-
-      sddm = super.sddm.overrideAttrs (oldAttrs: {
-        postInstall = ''
-          ${oldAttrs.postInstall or ""}
-          mkdir -p $out/share/wayland-sessions
-          cp ${./mango.desktop} $out/share/wayland-sessions/mango.desktop
-        '';
-      });
-    })
-  ];
-
   imports =
     [
       # Include the results of the hardware scan.
@@ -95,28 +59,60 @@ in
     };
   };
 
-  # nixpkgs.overlays = [
-  #   (self: super: {
-  #     sddm = super.sddm.overrideAttrs (oldAttrs: {
-  #       postInstall = ''
-  #         ${oldAttrs.postInstall or ""}
-  #         mkdir -p $out/share/wayland-sessions
-  #         cp ${./mango.desktop} $out/share/wayland-sessions/mango.desktop
-  #       '';
-  #     });
-  #   })
-  # ];
-  #
-  # environment.etc."wayland-sessions/mango.desktop".text = ''
-  #   [Desktop Entry]
-  #   Type=Application
-  #   Name=Mango
-  #   Comment=Mango Wayland Compositor
-  #   Exec=mango
-  #   TryExec=mango
-  #   DesktopNames=Mango
-  # '';
+  services.postgresql = {
+    enable = true;
+    ensureDatabases = [ "mydatabase" ];
+    enableTCPIP = true;
+    ensureUsers = [
+      {
+        name = "tor";
+      }
+    ];
+    # port = 5432;
+    authentication = pkgs.lib.mkOverride 10 ''
+      #...
+      #type database DBuser origin-address auth-method
+      local all       all     trust
+      # ipv4
+      host  all      all     127.0.0.1/32   trust
+      # ipv6
+      host all       all     ::1/128        trust
+    '';
+    initialScript = pkgs.writeText "backend-initScript" ''
+      CREATE ROLE nixcloud WITH LOGIN PASSWORD 'nixcloud' CREATEDB;
+      CREATE DATABASE nixcloud;
+      GRANT ALL PRIVILEGES ON DATABASE nixcloud TO nixcloud;
+    '';
+  };
 
+  services.displayManager.defaultSession = "hyprland";
+
+  # Enable automatic login for the user.
+  services.displayManager.autoLogin.enable = true;
+  services.displayManager.autoLogin.user = "tor";
+
+  services.displayManager.sessionPackages = [
+    (pkgs.writeTextFile {
+      name = "mango-session";
+      destination = "/share/wayland-sessions/mango.desktop";
+      text = ''
+        [Desktop Entry]
+        Name=Mango
+        Comment=Mango Wayland Compositor
+        Exec=mango
+        Type=Application
+      '';
+      passthru.providedSessions = [ "mango" ];
+    })
+  ];
+
+  programs.river.enable = true;
+
+  programs.sway =
+    {
+      enable = true;
+      wrapperFeatures.gtk = true;
+    };
 
   # Enable the KDE Plasma Desktop Environment.
   # services.desktopManager.plasma6.enable = true;
@@ -135,7 +131,6 @@ in
     vscode-js-debug
     netcoredbg
     inputs.mangowc.packages.${pkgs.system}.mango
-    mangoDesktop
   ];
 
   programs.nix-ld.enable = true;

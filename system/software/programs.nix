@@ -71,11 +71,12 @@
   environment.systemPackages = with pkgs; [
     nodejs
     prefetch-npm-deps # see server.nix
+    bat
     brightnessctl
-    cargo
     cliphist
     curl
     docker
+    fd
     ffmpeg-full
     ffmpegthumbnailer
     fzf
@@ -88,7 +89,6 @@
     kitty
     libnotify
     librewolf
-    libreoffice-qt
     hunspell
     hunspellDicts.uk_UA
     hunspellDicts.th_TH
@@ -96,13 +96,18 @@
     lutris
     nil
     nodejs
-    ollama
+    openssl_3
     pcsx2
+    pgadmin4
     polkit_gnome
     p7zip
     qmk
+    rainfrog
     ripgrep
+    rustup
     tdf
+    typst
+    tmux
     unzip
     wget
     zathura

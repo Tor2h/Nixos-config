@@ -1,6 +1,4 @@
-{ lib
-, ...
-}:
+{ lib, ... }:
 
 {
   programs.waybar = {
@@ -13,7 +11,14 @@
         modules-left = [
           "mpris"
         ];
-        modules-center = [ "hyprland/workspaces" ];
+        # Use multiple workspace modules - waybar will automatically show the active one
+        modules-center = [
+          "hyprland/workspaces"
+          "sway/workspaces"
+          "river/tags" # Mango uses river protocol
+          "ext/workspaces"
+          "dwl/tags"
+        ];
         modules-right = [
           "clock"
           "pulseaudio"
@@ -74,12 +79,40 @@
           "tooltip-format" = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
         };
 
+        # Hyprland workspaces
         "hyprland/workspaces" = {
           format = "{name}";
           tooltip = "true";
-          all-outputs = false; # Required for persistent-workspaces to work
+          all-outputs = false;
           sort-by-number = true;
           persistent-workspaces = { };
+        };
+
+        # Sway workspaces
+        "sway/workspaces" = {
+          format = "{name}";
+          disable-scroll = false;
+          all-outputs = false;
+          sort-by-number = true;
+          persistent-workspaces = { };
+        };
+
+        # River tags (for Mango/river-based compositors)
+        "river/tags" = {
+          num-tags = 10;
+          hide-vacant = true;
+        };
+
+        "ext/workspaces" = {
+          "format" = "{icon}";
+          "ignore-hidden" = false;
+          "on-click" = "activate";
+          "on-click-right" = "deactivate";
+          "sort-by-id" = true;
+        };
+
+        "dwl/tags" = {
+          "num-tags" = 9;
         };
 
         "tray" = {
@@ -154,9 +187,9 @@
           on-click = "wlogout &";
           format = "󰐥";
         };
-
       };
     };
+
     style = lib.mkAfter ''
           * {
                   border: none;
@@ -232,8 +265,36 @@
                   background: @base0D;
                   color: @base01;
       }
+
+      /* Shared styles for all workspace modules */
+      #workspaces,
+      .modules-center > * {
+        padding: 0px 0px;
+      }
+
+      /* Hyprland workspaces */
+      #workspaces.hyprland button,
+      /* Sway workspaces */
+      #workspaces.sway button,
+      /* River tags */
+      #tags button {
+        margin-left: 5px;
+        margin-bottom: 5px;
+        background: @base0D;
+        color: @base01;
+      }
+
+      #workspaces.hyprland button.active,
+      #workspaces.sway button.focused,
+      #workspaces.ext button.active,
+      #tags button.focused {
+        background: @base0D;
+        color: @base01;
+      }
+
       #workspaces button.persistent {
       }
+
       #workspaces button {
       }
     '';

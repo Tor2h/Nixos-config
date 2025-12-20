@@ -18,10 +18,6 @@
     ];
   };
 
-  # Enable automatic login for the user.
-  services.displayManager.autoLogin.enable = false;
-  services.displayManager.autoLogin.user = "tor";
-
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
