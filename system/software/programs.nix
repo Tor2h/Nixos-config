@@ -73,6 +73,7 @@
     prefetch-npm-deps # see server.nix
     bat
     brightnessctl
+    calibre
     cliphist
     curl
     docker
@@ -86,7 +87,9 @@
     gzip
     heroic
     hyprpaper
+    hyprpicker
     kitty
+    koreader
     libnotify
     librewolf
     hunspell

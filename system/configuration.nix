@@ -91,6 +91,18 @@
   services.displayManager.autoLogin.enable = true;
   services.displayManager.autoLogin.user = "tor";
 
+  # # enable the nvidia video driver
+  # services.xserver.videoDrivers = [ "nvidia" ];
+  #
+  # # enable nvidia DRM modesetting (required for stable Wayland sessions)
+  # hardware.nvidia.modesetting.enable = true;
+  #
+  # # ensure the nvidia modules are included in the initrd so modesetting is available at boot
+  # boot.initrd.kernelModules = [ "nvidia" "nvidia_modeset" "nvidia_drm" "nvidia_uvm" ];
+  #
+  # # make sure the kernel param is passed early (extra safety)
+  # boot.kernelParams = [ "nvidia-drm.modeset=1" ];
+
   services.displayManager.sessionPackages = [
     (pkgs.writeTextFile {
       name = "mango-session";

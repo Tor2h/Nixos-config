@@ -67,6 +67,8 @@
         "hypridle"
         "systemctl --user start swww"
         "systemctl --user start set-wallpaper"
+        "wl-paste --type text --watch cliphist store # Stores only text data"
+        "wl-paste --type image --watch cliphist store # Stores only image data"
       ];
       # Mouse Binds
       bindm = [
@@ -106,10 +108,10 @@
         # Program rules
         "$mod, B, exec, firefox"
         "$mod, SPACE, exec, rofi -show drun -show-icons"
-        # "$mod, SPACE, exec, wofi --show drun"
         "$mod, T, exec, thunar"
         "$mod, RETURN, exec, ghostty"
         "$secondMod, L, exec, hyprlock"
+        "$secondMod, V, exec, cliphist list | rofi -dmenu -display-columns 2 | cliphist decode | wl-copy"
 
         # Utility
         "$secondMod SHIFT, S, exec, hyprshot -m region -o ~/Pictures/Screenshots/"

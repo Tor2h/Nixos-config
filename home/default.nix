@@ -40,7 +40,7 @@
     hyprpaper
     hyprpicker
     hyprshot
-    jetbrains.rider
+    # jetbrains.rider
     kmod
     lazydocker
     lazygit
@@ -63,7 +63,6 @@
     waybar
     wl-clipboard
     wlogout
-    wofi
     xfce.thunar
     xfce.thunar-volman
     xfce.tumbler
