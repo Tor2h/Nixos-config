@@ -69,8 +69,6 @@
   home-manager.backupFileExtension = "hmBackup";
 
   environment.systemPackages = with pkgs; [
-    nodejs
-    prefetch-npm-deps # see server.nix
     bat
     brightnessctl
     calibre
@@ -86,31 +84,35 @@
     grimblast
     gzip
     heroic
+    hunspell
+    hunspellDicts.th_TH
+    hunspellDicts.uk_UA
+    htop
     hyprpaper
     hyprpicker
     kitty
     koreader
     libnotify
     librewolf
-    hunspell
-    hunspellDicts.uk_UA
-    hunspellDicts.th_TH
     lua
     lutris
     nil
     nodejs
+    nodejs
     openssl_3
+    onlyoffice-desktopeditors
+    p7zip
     pcsx2
     pgadmin4
     polkit_gnome
-    p7zip
+    prefetch-npm-deps # see server.nix
     qmk
     rainfrog
     ripgrep
     rustup
     tdf
-    typst
     tmux
+    typst
     unzip
     wget
     zathura

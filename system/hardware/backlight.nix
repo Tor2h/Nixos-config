@@ -25,6 +25,9 @@
     TAG+="ddcci",\
     TAG+="systemd",\
     ENV{SYSTEMD_WANTS}+="ddcci@$kernel.service"
+
+    # allow members of the 'video' group to access i2c-dev devices (for ddcutil)
+    KERNEL=="i2c-[0-9]*", SUBSYSTEM=="i2c-dev", MODE="0660", GROUP="video"
   '';
 
   systemd.services."ddcci@" = {

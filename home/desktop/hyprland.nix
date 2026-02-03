@@ -11,7 +11,7 @@
     xwayland.enable = true;
 
     settings = {
-      monitor = [ ",preferred,auto,auto" ];
+      monitor = [ ",2560x1440@165,auto,auto" ];
       xwayland.force_zero_scaling = true;
       windowrulev2 = [
         "suppressevent maximize, class:.*"

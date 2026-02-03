@@ -5,21 +5,27 @@
 
 {
   imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
+    [
+      (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
   boot.initrd.availableKernelModules = [ "nvme" "ahci" "xhci_pci" "usbhid" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
-  boot.extraModulePackages = [ ];
+  boot.extraModprobeConfig = ''
+    options nvidia_modeset vblank_sem_control=0 nvidia NVreg_PreserveVideoMemoryAllocations=1 NVreg_TemporaryFilePath=/var/tmp
+  '';
+  boot.kernelModules = [ "nvidia_uvm" "nvidia_modeset" "nvidia_drm" "nvidia" ];
+  boot.kernelParams = [ "nvidia-drm.modeset=1" ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/4773e961-e7fc-418d-a6d3-57725b00a180";
+    {
+      device = "/dev/disk/by-uuid/4773e961-e7fc-418d-a6d3-57725b00a180";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/5DD2-7605";
+    {
+      device = "/dev/disk/by-uuid/5DD2-7605";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };
