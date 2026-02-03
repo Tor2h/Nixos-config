@@ -11,7 +11,14 @@
         modules-left = [
           "mpris"
         ];
-        modules-center = [ "mango/workspaces" ];
+        # Use multiple workspace modules - waybar will automatically show the active one
+        modules-center = [
+          "hyprland/workspaces"
+          "sway/workspaces"
+          "river/tags" # Mango uses river protocol
+          "ext/workspaces"
+          "dwl/tags"
+        ];
         modules-right = [
           "clock"
           "pulseaudio"
