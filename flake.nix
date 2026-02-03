@@ -20,10 +20,9 @@
 
     flake-utils.url = "github:numtide/flake-utils";
 
-    mangowc.url = "github:DreamMaoMao/mangowc";
   };
 
-  outputs = { self, nixpkgs, home-manager, stylix, sddm-sugar-candy-nix, mangowc, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, stylix, sddm-sugar-candy-nix, ... }@inputs:
     let
       inherit (self) outputs;
       defaultWallpaper = ./images/miator_39.jpg;

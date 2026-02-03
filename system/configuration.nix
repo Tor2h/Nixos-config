@@ -103,29 +103,6 @@
   # # make sure the kernel param is passed early (extra safety)
   # boot.kernelParams = [ "nvidia-drm.modeset=1" ];
 
-  services.displayManager.sessionPackages = [
-    (pkgs.writeTextFile {
-      name = "mango-session";
-      destination = "/share/wayland-sessions/mango.desktop";
-      text = ''
-        [Desktop Entry]
-        Name=Mango
-        Comment=Mango Wayland Compositor
-        Exec=mango
-        Type=Application
-      '';
-      passthru.providedSessions = [ "mango" ];
-    })
-  ];
-
-  programs.river.enable = true;
-
-  programs.sway =
-    {
-      enable = true;
-      wrapperFeatures.gtk = true;
-    };
-
   # Enable the KDE Plasma Desktop Environment.
   # services.desktopManager.plasma6.enable = true;
 
@@ -142,7 +119,6 @@
     nodePackages."@angular/cli"
     vscode-js-debug
     netcoredbg
-    inputs.mangowc.packages.${pkgs.system}.mango
   ];
 
   programs.nix-ld.enable = true;
