@@ -42,6 +42,12 @@
             # Stylix
             stylix.nixosModules.stylix
 
+            # mango.nixosModules.mango
+            # {
+            #   programs.mango.enable = true;
+            # }
+            # mangowc.nixosModules.mango
+
             home-manager.nixosModules.home-manager
             {
               # Home manager modules
