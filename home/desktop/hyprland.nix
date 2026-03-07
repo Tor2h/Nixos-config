@@ -107,6 +107,7 @@
       bind = [
         # Program rules
         "$mod, B, exec, firefox"
+        "$secondMod, period, exec, smile"
         "$mod, SPACE, exec, rofi -show drun -show-icons"
         "$mod, T, exec, thunar"
         "$mod, RETURN, exec, ghostty"

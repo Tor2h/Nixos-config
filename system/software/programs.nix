@@ -79,19 +79,21 @@
     ffmpeg-full
     ffmpegthumbnailer
     fzf
+    gamescope
     gcc
     gnutar
     grimblast
     gzip
     heroic
+    htop
     hunspell
     hunspellDicts.th_TH
     hunspellDicts.uk_UA
-    htop
     hyprpaper
     hyprpicker
     kitty
     koreader
+    lgogdownloader
     libnotify
     librewolf
     lua
@@ -99,25 +101,33 @@
     nil
     nodejs
     nodejs
-    openssl_3
     onlyoffice-desktopeditors
+    openssl_3
     p7zip
     pcsx2
     pgadmin4
     polkit_gnome
     prefetch-npm-deps # see server.nix
+    protonvpn-gui
     qmk
     rainfrog
     ripgrep
     rustup
+    smile
     tdf
     tmux
     typst
+    unrar
     unzip
+    vkd3d
     wget
+    wineWowPackages.staging
+    winetricks
+    wine64
     zathura
     zig
     zoxide
+    dxvk
     #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     #  wget
   ];
