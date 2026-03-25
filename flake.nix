@@ -25,7 +25,7 @@
   outputs = { self, nixpkgs, home-manager, stylix, sddm-sugar-candy-nix, ... }@inputs:
     let
       inherit (self) outputs;
-      defaultWallpaper = ./images/miator_39.jpg;
+      defaultWallpaper = ./images/Portraetter-128.jpg;
     in
     {
       # NixOS configuration entrypoint

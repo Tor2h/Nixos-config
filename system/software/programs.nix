@@ -61,6 +61,11 @@
     defaultEditor = true;
   };
 
+  programs.tmux = {
+    enable = true;
+    clock24 = true;
+  };
+
   programs.dconf.enable = true;
   programs.light.enable = true;
   virtualisation.docker.enable = true;
@@ -115,7 +120,6 @@
     rustup
     smile
     tdf
-    tmux
     typst
     unrar
     unzip

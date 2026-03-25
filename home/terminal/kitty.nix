@@ -25,7 +25,7 @@
     '';
 
     # Font
-    font.size = lib.mkForce 16;
+    font.size = lib.mkForce 18;
   };
 
   programs.zsh = {
