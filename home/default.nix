@@ -5,8 +5,6 @@
   imports = [
     # If you want to use home-manager modules from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModule
-    # ./nvim
-    # ./firefox
     ./desktop
     ./terminal
     ./development
@@ -45,7 +43,6 @@
     lazydocker
     lazygit
     mpd
-    neofetch
     nerd-fonts.iosevka
     nvtopPackages.nvidia
     pavucontrol
@@ -53,7 +50,6 @@
     playerctl
     postgresql
     qemu
-    rofi-wayland
     rofi-power-menu
     steam
     steam-run
@@ -63,10 +59,9 @@
     waybar
     wl-clipboard
     wlogout
-    xfce.thunar
-    xfce.thunar-volman
-    xfce.tumbler
-    kdePackages.xwaylandvideobridge
+    thunar
+    thunar-volman
+    tumbler
     yazi
   ];
   stylix.targets.rofi.enable = true;
@@ -77,7 +72,7 @@
   systemd.user.startServices = "sd-switch";
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  home.stateVersion = "24.11";
+  home.stateVersion = "26.05";
 
   programs.home-manager.enable = true;
 }

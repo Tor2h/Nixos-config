@@ -13,7 +13,7 @@
     extraGroups = [ "networkmanager" "wheel" "video" "audio" ];
     packages = with pkgs; [
       kdePackages.kate
-      swww
+      awww
       #  thunderbird
     ];
   };

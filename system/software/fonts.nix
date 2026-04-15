@@ -22,9 +22,8 @@
 
     packages = with pkgs; [
       noto-fonts
-      noto-fonts-extra
       noto-fonts-cjk-sans
-      noto-fonts-emoji
+      noto-fonts-color-emoji
       sarasa-gothic
       twitter-color-emoji
       nerd-fonts.iosevka

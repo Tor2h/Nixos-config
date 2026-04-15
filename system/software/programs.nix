@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, inputs, ... }: {
   imports = [ ];
 
   # Allow unfree packages
@@ -67,7 +67,6 @@
   };
 
   programs.dconf.enable = true;
-  programs.light.enable = true;
   virtualisation.docker.enable = true;
   hardware.keyboard.qmk.enable = true;
 
@@ -76,10 +75,12 @@
   environment.systemPackages = with pkgs; [
     bat
     brightnessctl
+    cargo
     calibre
     cliphist
     curl
     docker
+    dxvk
     fd
     ffmpeg-full
     ffmpegthumbnailer
@@ -98,6 +99,7 @@
     hyprpicker
     kitty
     koreader
+    krita
     lgogdownloader
     libnotify
     librewolf
@@ -113,25 +115,23 @@
     pgadmin4
     polkit_gnome
     prefetch-npm-deps # see server.nix
-    protonvpn-gui
+    proton-vpn
     qmk
     rainfrog
     ripgrep
     rustup
+    rustc-unwrapped
     smile
     tdf
+    luajitPackages.tree-sitter-cli
     typst
     unrar
     unzip
     vkd3d
     wget
-    wineWowPackages.staging
-    winetricks
-    wine64
     zathura
     zig
     zoxide
-    dxvk
     #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     #  wget
   ];

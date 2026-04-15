@@ -38,25 +38,6 @@
     enable = true; # Enable SDDM.
     wayland.enable = true;
     enableHidpi = true;
-    sugarCandyNix = {
-      enable = true;
-      settings = {
-        # General settings
-        Background = lib.cleanSource defaultWallpaper;
-        ScreenWidth = 2560;
-        ScreenHeight = 1440;
-        Font = "Iosevka nerd font";
-        # Form settings
-        HeaderText = "Welcome!";
-        FormPosition = "left";
-        HaveFormBackground = true;
-        PartialBlur = true;
-        # Customize colors
-        BackgroundColor = "#0c0b11";
-        MainColor = "#908caa";
-        AccentColor = "#9ccfd8";
-      };
-    };
   };
 
   services.postgresql = {
@@ -112,14 +93,6 @@
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   xdg.portal.configPackages = [ pkgs.xdg-desktop-portal-gtk ];
-
-  environment.systemPackages = with pkgs; [
-    nodejs
-    dotnetCorePackages.sdk_9_0_1xx-bin
-    nodePackages."@angular/cli"
-    vscode-js-debug
-    netcoredbg
-  ];
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [

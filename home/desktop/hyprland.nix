@@ -1,9 +1,8 @@
 { inputs, lib, config, pkgs, ... }: {
-  imports = [ ];
+  imports = [];
 
   stylix.targets.hyprland.enable = true;
 
-  # Extra "inventory space"
   home.sessionVariables = { HYPRLAND_INVENTORY = 1; };
 
   wayland.windowManager.hyprland = {
@@ -13,39 +12,35 @@
     settings = {
       monitor = [ ",2560x1440@165,auto,auto" ];
       xwayland.force_zero_scaling = true;
-      windowrulev2 = [
-        "suppressevent maximize, class:.*"
-        "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
-        "float, title:^(Firrfox — Sharing Indicator)$"
-        "noborder, title:^(Firefox — Sharing Indicator)$"
-        "rounding 0, title:^(Firefox — Sharing Indicator)$"
-        "float, class:^(firefox)$, title:^(Picture-in-Picture)$"
-        "pin, class:^(firefox)$, title:^(Picture-in-Picture)$"
-        "move 100%-w-20 100%-w-20, class:^(firefox)$, title:^(Picture-in-Picture)$"
-        "float, title:^(Save File)$"
-        "pin, title:^(Save File)$"
-        "pin, class:^(dragon)$"
-        "float, title:^(Torrent Options)$"
-        "pin, title:^(Torrent Options)$"
-        "opacity 0.0 override 0.0 override,class:^(xwaylandvideobridge)$"
-        "noanim,class:^(xwaylandvideobridge)$"
-        "noinitialfocus,class:^(xwaylandvideobridge)$"
-        "maxsize 1 1,class:^(xwaylandvideobridge)$"
-        "noblur,class:^(xwaylandvideobridge)$"
-        # "noborder,focus:0"
+      windowrule = [
+        "maximize off,match:class .*"
+        "stay_focused off,match:class ^$,match:title ^$,match:xwayland 1,match:float 1,match:fullscreen 0,match:pin 0"
+        "float on,match:title ^(Firefox — Sharing Indicator)$"
+        # "noborder on,match:title ^(Firefox — Sharing Indicator)$"
+        "rounding 0,match:title ^(Firefox — Sharing Indicator)$"
+        "float on,match:class ^(firefox)$,match:title ^(Picture-in-Picture)$"
+        "pin on,match:class ^(firefox)$,match:title ^(Picture-in-Picture)$"
+        "move 100%-w-20 100%-w-20,match:class ^(firefox)$,match:title ^(Picture-in-Picture)$"
+        "float on,match:title ^(Save File)$"
+        "pin on,match:title ^(Save File)$"
+        "pin on,match:class ^(dragon)$"
+        "float on,match:title ^(Torrent Options)$"
+        "pin on,match:title ^(Torrent Options)$"
+        "opacity 0.0 override 0.0 override,match:class ^(xwaylandvideobridge)$"
+        "no_anim on,match:class ^(xwaylandvideobridge)$"
+        "no_initial_focus on,match:class ^(xwaylandvideobridge)$"
+        "max_size 1 1,match:class ^(xwaylandvideobridge)$"
+        "no_blur on,match:class ^(xwaylandvideobridge)$"
       ];
+
       general = {
-        # Borders etc
         border_size = 3;
         gaps_in = 0;
         gaps_out = 0;
         "col.active_border" = lib.mkForce "rgb(${config.lib.stylix.colors.base0D})";
-        # "col.active_border" = lib.mkForce "rgba(33ccffee)";
         "col.inactive_border" = lib.mkForce "rgb(${config.lib.stylix.colors.base01})";
-        # "col.inactive_border" = lib.mkForce "rgba(595959aa)";
-        # col.inactive_border = "0xff000000"; #rgb(${base02});
       };
-      # Decoration
+
       decoration = {
         rounding = 0;
         inactive_opacity = 1.0;
@@ -54,57 +49,14 @@
 
       input = {
         kb_layout = "dk";
-
         follow_mouse = 1;
-
-        touchpad.natural_scroll = false;
+        touchpad.natural_scroll = true;
       };
+
       "$mod" = "ALT";
       "$secondMod" = "SUPER";
-      exec-once = [
-        "waybar"
-        "hyprpaper"
-        "hypridle"
-        "systemctl --user start swww"
-        "systemctl --user start set-wallpaper"
-        "wl-paste --type text --watch cliphist store # Stores only text data"
-        "wl-paste --type image --watch cliphist store # Stores only image data"
-      ];
-      # Mouse Binds
-      bindm = [
-        # Window
-        "$mod, mouse:272, movewindow"
-        "$mod, mouse:273, resizewindow"
-      ];
-      # Keybinds
-      bindel = [
-        # Utility
-        ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"
-        ", XF86AudioLowerVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%-"
-        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-        ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-        ", XFl86MonBrightnessUp, exec, brightnessctl s 10%+"
-        ", XF86MonBrightnessDown, exec, brightnessctl s 10%-"
-        # # Window rules
-        "$mod CONTROL, h, exec, hyprctl dispatch resizeactive -50 0; hyprctl dispatch centerwindow"
-        "$mod CONTROL, l, exec, hyprctl dispatch resizeactive 50 0; hyprctl dispatch centerwindow"
-        "$mod CONTROL, j, exec, hyprctl dispatch resizeactive 0 50; hyprctl dispatch centerwindow"
-        "$mod CONTROL, k, exec, hyprctl dispatch resizeactive 0 -50; hyprctl dispatch centerwindow"
 
-      ];
-
-      bindl = [
-        ", XF86AudioNext, exec, playerctl next"
-        ", XF86AudioPause, exec, playerctl play-pause"
-        ", XF86AudioPlay, exec, playerctl play-pause"
-        ", XF86AudioPrev, exec, playerctl previous"
-      ];
-
-      bindr = [
-        # "Windows key"
-        "$mod, O, exec, tofi-drun --drun-launch=true"
-      ];
-      bind = [
+bind = [
         # Program rules
         "$mod, B, exec, firefox"
         "$secondMod, period, exec, smile"
@@ -167,18 +119,51 @@
         # "$mod, SPACE, togglespecialworkspace"
         # "$mod SHIFT, SPACE, movetoworkspace, special"
       ];
-      # ++ (
-      # # workspaces
-      # # binds $mod + [shift +] {1..10} to [move to] workspace {1..10}
-      # builtins.concatLists (builtins.genList
-      #   (x:
-      #     let
-      #       ws = let c = (x + 1) / 10; in builtins.toString (x + 1 - (c * 10));
-      #     in
-      #     [
-      #       "$mod, ${ws}, workspace, ${toString (x + 1)}"
-      #       "$mod SHIFT, ${ws}, movetoworkspacesilent, ${toString (x + 1)}"
-      #     ]) 10));
+
+      # Mouse Binds
+      bindm = [
+        # Window
+        "$mod, mouse:272, movewindow"
+        "$mod, mouse:273, resizewindow"
+      ];
+      # Keybinds
+      bindel = [
+        # Utility
+        ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"
+        ", XF86AudioLowerVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%-"
+        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+        ", XFl86MonBrightnessUp, exec, brightnessctl s 10%+"
+        ", XF86MonBrightnessDown, exec, brightnessctl s 10%-"
+        # # Window rules
+        "$mod CONTROL, h, exec, hyprctl dispatch resizeactive -50 0; hyprctl dispatch centerwindow"
+        "$mod CONTROL, l, exec, hyprctl dispatch resizeactive 50 0; hyprctl dispatch centerwindow"
+        "$mod CONTROL, j, exec, hyprctl dispatch resizeactive 0 50; hyprctl dispatch centerwindow"
+        "$mod CONTROL, k, exec, hyprctl dispatch resizeactive 0 -50; hyprctl dispatch centerwindow"
+
+      ];
+
+      bindl = [
+        ", XF86AudioNext, exec, playerctl next"
+        ", XF86AudioPause, exec, playerctl play-pause"
+        ", XF86AudioPlay, exec, playerctl play-pause"
+        ", XF86AudioPrev, exec, playerctl previous"
+      ];
+
+      bindr = [
+        # "Windows key"
+        "$mod, O, exec, tofi-drun --drun-launch=true"
+      ];
+
+      exec = [
+        "waybar"
+        "hyprpaper"
+        "hypridle"
+        "systemctl --user start awww"
+        "systemctl --user start set-wallpaper"
+        "wl-paste --type text --watch cliphist store"
+        "wl-paste --type image --watch cliphist store"
+      ];
 
       animations = {
         enabled = 1;
@@ -199,4 +184,3 @@
     };
   };
 }
-

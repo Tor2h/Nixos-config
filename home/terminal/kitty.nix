@@ -42,7 +42,7 @@
       rm = "rm -i";
       "vi" = "nvim";
       "lg" = "lazygit";
-      update = "sudo nixos-rebuild switch --flake ~/nixos\#udev";
+      update = "nix flake update && sudo nixos-rebuild switch --flake .#udev";
     };
     initContent = ''
       autoload -Uz vcs_info

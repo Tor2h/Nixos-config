@@ -1,26 +1,28 @@
 { inputs, lib, config, pkgs, ... }: {
   home.packages = with pkgs; [
+    # Code formatters
     # Language servers
-    nixd # Nix
-    rust-analyzer # Rust
+    eslint
+    gofumpt # Go formatter
     gopls # Go
     lua-language-server # Lua
-    nodePackages.bash-language-server # Bash
-    nodePackages.yaml-language-server # Yaml
-    sqls # SQL
-    tailwindcss-language-server # Tailwind
-    nodePackages.typescript-language-server # TypeScript/JavaScript, includes JSX support
-    nodePackages.vscode-langservers-extracted # HTML/CSS/JSON
-    nodePackages.eslint # JavaScript linter
-    stylelint # CSS/SCSS linter
-    python314
-
-    # Code formatters
-    nodePackages.prettier # Javascript / css / html etc
-    stylua # Lua formatter
+    marksman
+    nixd # Nix
     nixpkgs-fmt # Nix formatter
+    python314
+    roslyn
+    rust-analyzer # Rust
     rustfmt # Rust formatter
-    gofumpt # Go formatter
     shfmt # Shell script formatter
+    sqls # SQL
+    stylelint # CSS/SCSS linter
+    stylua # Lua formatter
+    superhtml
+    svelte-language-server
+    tailwindcss-language-server # Tailwind
+    taplo
+    tinymist
+    typescript-language-server
+    vscode-langservers-extracted
   ];
 }

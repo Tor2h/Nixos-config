@@ -36,7 +36,6 @@
           modules = [
             # System-level configuration
             ./system/configuration.nix
-            sddm-sugar-candy-nix.nixosModules.default
 
             # Stylix
             stylix.nixosModules.stylix
