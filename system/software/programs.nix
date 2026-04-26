@@ -100,13 +100,10 @@
     kitty
     koreader
     krita
-    lgogdownloader
     libnotify
     librewolf
     lua
-    lutris
     nil
-    nodejs
     nodejs
     onlyoffice-desktopeditors
     openssl_3
@@ -117,7 +114,6 @@
     prefetch-npm-deps # see server.nix
     proton-vpn
     qmk
-    rainfrog
     ripgrep
     rustup
     rustc-unwrapped
@@ -137,8 +133,8 @@
   ];
 
   programs.nh = {
-    enable = true;
-    clean.enable = true;
-    flake = "/home/tor/.config/nixos-config";
+    enable = false;
+    # clean.enable = true;
+    # flake = "/home/tor/.config/nix/nix.conf";
   };
 }

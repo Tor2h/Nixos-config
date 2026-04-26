@@ -10,22 +10,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    stylix.url = "github:danth/stylix";
-
-    sddm-sugar-candy-nix = {
-      url = "gitlab:Zhaith-Izaliel/sddm-sugar-candy-nix";
-      # Optional, by default this flake follows nixpkgs-unstable.
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    stylix.url = "github:nix-community/stylix";
 
     flake-utils.url = "github:numtide/flake-utils";
 
   };
 
-  outputs = { self, nixpkgs, home-manager, stylix, sddm-sugar-candy-nix, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, stylix, ... }@inputs:
     let
       inherit (self) outputs;
-      defaultWallpaper = ./images/Portraetter-128.jpg;
+      defaultWallpaper = ./images/wallpaper.jpg;
     in
     {
       # NixOS configuration entrypoint
