@@ -2,6 +2,7 @@
   home.packages = with pkgs; [
     # Code formatters
     # Language servers
+    clang-tools
     eslint
     gofumpt # Go formatter
     gopls # Go
@@ -10,7 +11,6 @@
     nixd # Nix
     nixpkgs-fmt # Nix formatter
     python314
-    roslyn
     rust-analyzer # Rust
     rustfmt # Rust formatter
     shfmt # Shell script formatter

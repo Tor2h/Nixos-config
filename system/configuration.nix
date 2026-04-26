@@ -95,9 +95,6 @@
   xdg.portal.configPackages = [ pkgs.xdg-desktop-portal-gtk ];
 
   programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [
-    netcoredbg
-  ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget

@@ -38,7 +38,6 @@
     hyprpaper
     hyprpicker
     hyprshot
-    # jetbrains.rider
     kmod
     lazydocker
     lazygit
