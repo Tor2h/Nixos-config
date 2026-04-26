@@ -27,7 +27,6 @@
 
   programs.gamemode.enable = true;
 
-  programs.firefox.enable = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -95,8 +94,9 @@
     hunspell
     hunspellDicts.th_TH
     hunspellDicts.uk_UA
-    hyprpaper
     hyprpicker
+    hyprlock
+    hyprshot
     kitty
     koreader
     krita

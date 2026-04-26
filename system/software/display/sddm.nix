@@ -1,3 +1,3 @@
-{ config, pkgs, lib, defaultWallpaper, ... }: {
+{ config, pkgs, lib, ... }: {
   # Set the sddm theme
 }

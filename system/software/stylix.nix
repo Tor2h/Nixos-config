@@ -1,10 +1,10 @@
-{ config, pkgs, defaultWallpaper, ... }:
+{ config, pkgs, ... }:
 
 {
   stylix = {
     # Colours
     enable = true;
-    image = ./images/wallpaper.jpg;
+    image = ./wallpaper.jpg;
     polarity = "dark";
 
     base16Scheme = {

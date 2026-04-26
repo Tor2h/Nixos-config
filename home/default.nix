@@ -21,23 +21,15 @@
   home.packages = with pkgs; [
     btop
     ddcutil
-    discord
     dunst
     eza
     fastfetch
     feh
     font-awesome
-    freerdp
     ghostty
     gimp
     gnome-calculator
-    gnome-text-editor
-    gnome-system-monitor
     harlequin
-    hyprlock
-    hyprpaper
-    hyprpicker
-    hyprshot
     kmod
     lazydocker
     lazygit
@@ -64,6 +56,18 @@
     yazi
   ];
   stylix.targets.rofi.enable = true;
+
+  programs.firefox = {
+    enable = true;
+
+    profiles = {
+      Tor = {
+        # bookmarks, extensions, search engines...
+      };
+    };
+  };
+
+  stylix.targets.firefox.profileNames = [ "Tor" ];
 
   nix.settings.download-buffer-size = 524288000;
 

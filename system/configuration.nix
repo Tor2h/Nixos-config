@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, lib, defaultWallpaper, ... }:
+{ config, pkgs, inputs, lib, ... }:
 {
   imports =
     [

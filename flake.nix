@@ -22,7 +22,6 @@
   outputs = { self, nixpkgs, home-manager, stylix, ... }@inputs:
     let
       inherit (self) outputs;
-      defaultWallpaper = ./images/wallpaper.jpg;
     in
     {
       # NixOS configuration entrypoint
@@ -30,7 +29,7 @@
         # Config for gpteapot system
         udev = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = { inherit inputs outputs defaultWallpaper; };
+          specialArgs = { inherit inputs outputs; };
           modules = [
             # System-level configuration
             ./system/configuration.nix
