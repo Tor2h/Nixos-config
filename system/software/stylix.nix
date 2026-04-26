@@ -4,7 +4,7 @@
   stylix = {
     # Colours
     enable = true;
-    image = defaultWallpaper;
+    image = ./images/wallpaper.jpg;
     polarity = "dark";
 
     base16Scheme = {
@@ -53,7 +53,7 @@
 
       monospace = {
         package = pkgs.nerd-fonts.iosevka;
-        name = "Iosevka nerd font";
+        name = "IosevkaNerdFont";
       };
 
     };

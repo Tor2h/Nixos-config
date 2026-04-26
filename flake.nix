@@ -10,7 +10,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    stylix.url = "github:nix-community/stylix";
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     flake-utils.url = "github:numtide/flake-utils";
 
@@ -26,6 +29,7 @@
       nixosConfigurations = {
         # Config for gpteapot system
         udev = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
           specialArgs = { inherit inputs outputs defaultWallpaper; };
           modules = [
             # System-level configuration
