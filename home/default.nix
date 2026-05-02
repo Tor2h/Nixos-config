@@ -30,29 +30,38 @@
     gimp
     gnome-calculator
     harlequin
+    heroic
+    hyprlock
+    hyprpicker
+    hyprshot
     kmod
+    krita
     lazydocker
     lazygit
+    librewolf
+    lua
     mpd
     nerd-fonts.iosevka
     nvtopPackages.nvidia
     pavucontrol
     pciutils
+    pcsx2
     playerctl
     postgresql
     qemu
     rofi-power-menu
+    smile
     steam
     steam-run
+    thunar
+    thunar-volman
+    tumbler
     vim
     virt-manager
     vlc
     waybar
     wl-clipboard
     wlogout
-    thunar
-    thunar-volman
-    tumbler
     yazi
   ];
   stylix.targets.rofi.enable = true;

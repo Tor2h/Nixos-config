@@ -74,8 +74,8 @@
   environment.systemPackages = with pkgs; [
     bat
     brightnessctl
-    cargo
     calibre
+    cargo
     cliphist
     curl
     docker
@@ -89,37 +89,29 @@
     gnutar
     grimblast
     gzip
-    heroic
     htop
     hunspell
     hunspellDicts.th_TH
     hunspellDicts.uk_UA
-    hyprpicker
-    hyprlock
-    hyprshot
     kitty
     koreader
-    krita
     libnotify
-    librewolf
-    lua
+    luajitPackages.tree-sitter-cli
     nil
     nodejs
+    nps
     onlyoffice-desktopeditors
     openssl_3
     p7zip
-    pcsx2
     pgadmin4
     polkit_gnome
     prefetch-npm-deps # see server.nix
     proton-vpn
     qmk
     ripgrep
-    rustup
     rustc-unwrapped
-    smile
+    rustup
     tdf
-    luajitPackages.tree-sitter-cli
     typst
     unrar
     unzip
