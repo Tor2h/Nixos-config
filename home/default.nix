@@ -20,6 +20,7 @@
   # Add stuff for your user as you see fit:
   home.packages = with pkgs; [
     btop
+    ddcui
     ddcutil
     dunst
     eza
@@ -48,6 +49,7 @@
     pcsx2
     playerctl
     postgresql
+    qbittorrent
     qemu
     rofi-power-menu
     smile
