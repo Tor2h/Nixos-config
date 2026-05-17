@@ -1,7 +1,7 @@
 { inputs, lib, config, pkgs, ... }: {
   imports = [];
 
-  stylix.targets.hyprland.enable = true;
+  stylix.targets.hyprland.enable = false;
 
   home.sessionVariables = { HYPRLAND_INVENTORY = 1; };
 
@@ -9,178 +9,13 @@
     enable = true;
     xwayland.enable = true;
 
-    settings = {
-      monitor = [ ",2560x1440@165,auto,auto" ];
-      xwayland.force_zero_scaling = true;
-      windowrule = [
-        "maximize off,match:class .*"
-        "stay_focused off,match:class ^$,match:title ^$,match:xwayland 1,match:float 1,match:fullscreen 0,match:pin 0"
-        "float on,match:title ^(Firefox — Sharing Indicator)$"
-        # "noborder on,match:title ^(Firefox — Sharing Indicator)$"
-        "rounding 0,match:title ^(Firefox — Sharing Indicator)$"
-        "float on,match:class ^(firefox)$,match:title ^(Picture-in-Picture)$"
-        "pin on,match:class ^(firefox)$,match:title ^(Picture-in-Picture)$"
-        "move 100%-w-20 100%-w-20,match:class ^(firefox)$,match:title ^(Picture-in-Picture)$"
-        "float on,match:title ^(Save File)$"
-        "pin on,match:title ^(Save File)$"
-        "pin on,match:class ^(dragon)$"
-        "float on,match:title ^(Torrent Options)$"
-        "pin on,match:title ^(Torrent Options)$"
-        "opacity 0.0 override 0.0 override,match:class ^(xwaylandvideobridge)$"
-        "no_anim on,match:class ^(xwaylandvideobridge)$"
-        "no_initial_focus on,match:class ^(xwaylandvideobridge)$"
-        "max_size 1 1,match:class ^(xwaylandvideobridge)$"
-        "no_blur on,match:class ^(xwaylandvideobridge)$"
-      ];
+    # Disable HM's own config file generation
+    settings = lib.mkForce {};
+    extraConfig = lib.mkForce "# config managed via hyprland.lua";
+  };
 
-      general = {
-        border_size = 3;
-        gaps_in = 0;
-        gaps_out = 0;
-        "col.active_border" = lib.mkForce "rgb(${config.lib.stylix.colors.base0D})";
-        "col.inactive_border" = lib.mkForce "rgb(${config.lib.stylix.colors.base01})";
-      };
-
-      decoration = {
-        rounding = 0;
-        inactive_opacity = 1.0;
-        blur.size = 20;
-      };
-
-      input = {
-        kb_layout = "dk";
-        follow_mouse = 1;
-        touchpad.natural_scroll = true;
-      };
-
-      "$mod" = "ALT";
-      "$secondMod" = "SUPER";
-
-bind = [
-        # Program rules
-        "$mod, B, exec, firefox"
-        "$secondMod, period, exec, smile"
-        "$mod, SPACE, exec, rofi -show drun -show-icons"
-        "$mod, T, exec, thunar"
-        "$mod, RETURN, exec, ghostty"
-        "$secondMod, L, exec, hyprlock"
-        "$secondMod, V, exec, cliphist list | rofi -dmenu -display-columns 2 | cliphist decode | wl-copy"
-
-        # Utility
-        "$secondMod SHIFT, S, exec, hyprshot -m region -o ~/Pictures/Screenshots/"
-        "$secondMod CONTROL, S, exec, hyprshot -m window -o ~/Pictures/Screenshots/"
-        ", Print, exec, hyprshot -m output -o ~/Pictures/Screenshots/"
-
-        # Window Rules
-        "$mod, h, movefocus, l"
-        "$mod, j, movefocus, d"
-        "$mod, k, movefocus, u"
-        "$mod, l, movefocus, r"
-
-        "$mod SHIFT, h, movewindow, l"
-        "$mod SHIFT, j, movewindow, d"
-        "$mod SHIFT, k, movewindow, u"
-        "$mod SHIFT, l, movewindow, r"
-
-        # "$mod, c, centerwindow, 1"
-
-        "$mod, q, killactive"
-        # "$secondMod, f, fullscreen, 0"
-        "$secondMod, f, fullscreen, 1"
-        "$mod, tab, cyclenext"
-        "$mod SHIFT, tab, cyclenext, prev"
-        "$secondMod, SPACE, exec, hyprctl dispatch togglefloating; hyprctl dispatch resizeactive exact 1500 1200; hyprctl dispatch centerwindow"
-        "$secondMod, t, settiled"
-
-        "$mod, x, workspace, 1"
-        "$mod, c, workspace, 2"
-        "$mod, v, workspace, 3"
-        "$mod, s, workspace, 4"
-        "$mod, d, workspace, 5"
-        "$mod, f, workspace, 6"
-        "$mod, w, workspace, 7"
-        "$mod, e, workspace, 8"
-        "$mod, r, workspace, 9"
-        "$mod, z, workspace, 10"
-
-        "$mod SHIFT, x, movetoworkspace, 1"
-        "$mod SHIFT, c, movetoworkspace, 2"
-        "$mod SHIFT, v, movetoworkspace, 3"
-        "$mod SHIFT, s, movetoworkspace, 4"
-        "$mod SHIFT, d, movetoworkspace, 5"
-        "$mod SHIFT, f, movetoworkspace, 6"
-        "$mod SHIFT, w, movetoworkspace, 7"
-        "$mod SHIFT, e, movetoworkspace, 8"
-        "$mod SHIFT, r, movetoworkspace, 9"
-        "$mod SHIFT, z, movetoworkspace, 10"
-        # Workspace rules
-        # "$mod, bracketright, workspace, +1"
-        # "$mod, bracketleft, workspace, -1"
-        # "$mod, SPACE, togglespecialworkspace"
-        # "$mod SHIFT, SPACE, movetoworkspace, special"
-      ];
-
-      # Mouse Binds
-      bindm = [
-        # Window
-        "$mod, mouse:272, movewindow"
-        "$mod, mouse:273, resizewindow"
-      ];
-      # Keybinds
-      bindel = [
-        # Utility
-        ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"
-        ", XF86AudioLowerVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%-"
-        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-        ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-        ", XFl86MonBrightnessUp, exec, brightnessctl s 10%+"
-        ", XF86MonBrightnessDown, exec, brightnessctl s 10%-"
-        # # Window rules
-        "$mod CONTROL, h, exec, hyprctl dispatch resizeactive -50 0; hyprctl dispatch centerwindow"
-        "$mod CONTROL, l, exec, hyprctl dispatch resizeactive 50 0; hyprctl dispatch centerwindow"
-        "$mod CONTROL, j, exec, hyprctl dispatch resizeactive 0 50; hyprctl dispatch centerwindow"
-        "$mod CONTROL, k, exec, hyprctl dispatch resizeactive 0 -50; hyprctl dispatch centerwindow"
-
-      ];
-
-      bindl = [
-        ", XF86AudioNext, exec, playerctl next"
-        ", XF86AudioPause, exec, playerctl play-pause"
-        ", XF86AudioPlay, exec, playerctl play-pause"
-        ", XF86AudioPrev, exec, playerctl previous"
-      ];
-
-      bindr = [
-        # "Windows key"
-        "$mod, O, exec, tofi-drun --drun-launch=true"
-      ];
-
-      exec = [
-        "waybar"
-        "hyprpaper"
-        "hypridle"
-        "systemctl --user start awww"
-        "systemctl --user start set-wallpaper"
-        "wl-paste --type text --watch cliphist store"
-        "wl-paste --type image --watch cliphist store"
-      ];
-
-      animations = {
-        enabled = 1;
-        bezier = "fade,0.79,0.33,0.14,0.53,";
-        animation = [
-          "fade,1,2,default"
-          "workspaces,1,2,default,fade"
-          "windows,1,1,fade,popin 95%"
-        ];
-      };
-
-      # Miscallaneous settings
-      misc = {
-        disable_hyprland_logo = true;
-        disable_splash_rendering = true;
-        # background_color = "0x26233a";
-      };
-    };
+  # Write the Lua config ourselves
+  xdg.configFile."hypr/hyprland.lua" = {
+    source = ./hyprland.lua;
   };
 }
