@@ -99,7 +99,9 @@ hl.window_rule({ match = { class = "^xwaylandvideobridge$" }, no_blur = true })
 
 -- ─── Autostart ───────────────────────────────────────────────────────────────
 hl.on("hyprland.start", function()
-  hl.exec_cmd("waybar")
+  hl.exec_cmd("awww-daemon")
+  hl.exec_cmd("awww img /home/tor/nixos/system/software/wallpaper.jpg") -- Adjust path if needed
+  hl.exec_cmd("quickshell")
   hl.exec_cmd("hypridle")
   hl.exec_cmd("wl-paste --type text --watch cliphist store")
   hl.exec_cmd("wl-paste --type image --watch cliphist store")

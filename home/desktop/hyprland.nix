@@ -10,7 +10,7 @@
     xwayland.enable = true;
 
     # Disable HM's own config file generation
-    settings = lib.mkForce {};
+      settings = lib.mkForce {};
     extraConfig = lib.mkForce "# config managed via hyprland.lua";
   };
 
