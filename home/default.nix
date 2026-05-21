@@ -19,7 +19,6 @@
 
   # Add stuff for your user as you see fit:
   home.packages = with pkgs; [
-    awww
     btop
     ddcui
     ddcutil
@@ -52,8 +51,6 @@
     postgresql
     qbittorrent
     qemu
-    qt6.qt5compat
-    qt6.qtimageformats
     rofi-power-menu
     smile
     steam

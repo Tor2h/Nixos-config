@@ -17,11 +17,6 @@
 
     flake-utils.url = "github:numtide/flake-utils";
 
-    quickshell = {
-      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
   };
 
   outputs = { self, nixpkgs, home-manager, stylix, ... }@inputs:

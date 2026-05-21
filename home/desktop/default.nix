@@ -3,7 +3,7 @@
     ./hyprland.nix
     ./hypridle.nix
     ./rofi.nix
-    ./quickshell.nix
+    ./waybar.nix
     ./wlogout.nix
   ];
 
