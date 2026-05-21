@@ -29,6 +29,8 @@ ShellRoot {
 	property bool notifCenterVisible: false
 	property bool clipboardVisible: false
 	property bool clockPanelVisible: false
+	property bool animePanelVisible: false
+	property bool moviesPanelVisible: false
 	property bool ethConnected: false
 	property var pfpFiles: []
 	property string searchTerm: ""
@@ -140,6 +142,8 @@ ShellRoot {
 		notifCenterVisible = false
 		clockPanelVisible = false
 		clipboardVisible = false
+		animePanelVisible = false
+		moviesPanelVisible = false
 
 	}
 	function refreshBluetooth() {
@@ -239,6 +243,12 @@ ShellRoot {
 	}
 	function toggleClipboard() {
 		clipboardVisible = !clipboardVisible
+	}
+	function toggleAnimePanel() { 
+		animePanelVisible = !animePanelVisible 
+	}
+	function toggleMoviesPanel() { 
+		moviesPanelVisible = !moviesPanelVisible 
 	}
 
 	Component.onCompleted: {
@@ -772,6 +782,8 @@ Timer {
 	NotifCenter {}
 	ClipboardPanel{}
 	ClockPanel{}
+	AnimePanel{}
+	MoviesPanel{}
 
 	IpcHandler {
 		target: "notifcenter"
@@ -842,6 +854,18 @@ Timer {
 		target: "clipboard"
 		function toggle() {
 			root.toggleClipboard()
+		}
+	}
+	IpcHandler {
+    	target: "anime"
+		function toggle() { 
+			root.toggleAnimePanel() 
+		}
+	}
+	IpcHandler {
+    	target: "movies"
+		function toggle() { 
+			root.toggleMoviesPanel() 
 		}
 	}
 }

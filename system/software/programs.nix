@@ -76,7 +76,6 @@
     brightnessctl
     calibre
     cargo
-    cava
     cliphist
     curl
     docker
