@@ -181,19 +181,18 @@
                 #tray,
                 #custom-power
                 {
-                  border-radius: 5px;
                   padding-left: 0px;
                   padding-right: 0px;
                   margin-top: 0px;
                   margin-right: 10px;
                   margin-bottom: 0px;
-                  color: @base0D;
+                  color: @base01;
                 }
 
                 #clock, #custom-backlight {
                   padding-right: 20px;
                   margin-right: 20px;
-                  border-right: 1px solid @base0D;
+                  border-right: 1px solid @base01;
                   margin-top: 5px;
                   margin-bottom: 5px;
                 }
@@ -201,7 +200,7 @@
                 #custom-power {
                   margin-left: 10px;
                   padding-left: 20px;
-                  border-left: 1px solid @base0D;
+                  border-left: 1px solid @base01;
                   margin-top: 5px;
                   margin-bottom: 5px;
                   margin-right: 20px;
@@ -210,7 +209,7 @@
                 #tray {
                   margin-left: 10px;
                   padding-left: 20px;
-                  border-left: 1px solid @base0D;
+                  border-left: 1px solid @base01;
                   margin-top: 5px;
                   margin-bottom: 5px;
                 }
@@ -225,14 +224,19 @@
 
                 #workspaces button {
                   margin-left: 5px;
-                  margin-bottom: 5px;
-                  background: @base01;
-                  color: @base0D;
+                  margin-bottom: 2px;
+                  margin-top: 2px;
+                  background: @base00;
+                  color: @base01;
+                }
+
+                #workspaces button:first-child {
+                  margin-left: 0px;
                 }
 
                  #workspaces button.active {
-                  background: @base0D;
-                  color: @base01;
+                  background: @base01;
+                  color: @base00;
       }
 
       /* Shared styles for all workspace modules */

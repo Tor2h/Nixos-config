@@ -28,8 +28,11 @@ hl.config({
     gaps_out    = 0,
     -- Replace these hex values with your Stylix base0D/base01 colors:
     col         = {
-      active_border   = "rgb(8ba4b0)", -- was config.lib.stylix.colors.base0D
-      inactive_border = "rgb(0d0c0c)", -- was config.lib.stylix.colors.base01
+      -- active_border   = "rgb(8ba4b0)", -- was config.lib.stylix.colors.base0D
+      -- inactive_border = "rgb(0d0c0c)", -- was config.lib.stylix.colors.base01
+
+      active_border   = "rgb(1f1f28)", -- was config.lib.stylix.colors.base0D
+      inactive_border = "rgb(f2ecbc)", -- was config.lib.stylix.colors.base01
     },
   },
 
@@ -63,7 +66,7 @@ hl.animation({ leaf = "workspaces", enabled = true, speed = 2, bezier = "default
 hl.animation({ leaf = "windows", enabled = true, speed = 1, bezier = "fade", style = "popin 95%" })
 
 -- ─── Window Rules ────────────────────────────────────────────────────────────
-hl.window_rule({ match = { class = ".*" }, maximize = false })
+hl.window_rule({ match = { class = ".*" }, maximize = false, no_shadow = true, })
 
 hl.window_rule({
   match = { class = "^$", title = "^$", xwayland = true, float = true, fullscreen = false, pin = false },
@@ -99,6 +102,8 @@ hl.window_rule({ match = { class = "^xwaylandvideobridge$" }, no_blur = true })
 
 -- ─── Autostart ───────────────────────────────────────────────────────────────
 hl.on("hyprland.start", function()
+  hl.exec_cmd("awww-daemon")
+  hl.exec_cmd("awww img /home/tor/Pictures/portraetter/Portrætter-128.jpg")
   hl.exec_cmd("waybar")
   hl.exec_cmd("hypridle")
   hl.exec_cmd("wl-paste --type text --watch cliphist store")
