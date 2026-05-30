@@ -6,6 +6,7 @@
     eslint
     gofumpt # Go formatter
     gopls # Go
+    lua
     lua-language-server # Lua
     marksman
     nixd # Nix

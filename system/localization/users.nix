@@ -11,11 +11,7 @@
     isNormalUser = true;
     description = "Tor Holm";
     extraGroups = [ "networkmanager" "wheel" "video" "audio" ];
-    packages = with pkgs; [
-      kdePackages.kate
-      awww
-      #  thunderbird
-    ];
+    packages = with pkgs; [];
   };
 
   # Some programs need SUID wrappers, can be configured further or are

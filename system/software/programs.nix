@@ -13,9 +13,9 @@
     EDITOR = "nvim";
   };
 
-  virtualisation.libvirtd.enable = true;
-  programs.virt-manager.enable = true;
-  users.groups.libvirtd.members = [ "tor" ];
+  # virtualisation.libvirtd.enable = true;
+  # programs.virt-manager.enable = true;
+  # users.groups.libvirtd.members = [ "tor" ];
 
   programs.steam = {
     enable = true;
@@ -87,7 +87,6 @@
     gamescope
     gcc
     gnutar
-    grimblast
     gzip
     htop
     hunspell
@@ -97,7 +96,6 @@
     koreader
     libnotify
     luajitPackages.tree-sitter-cli
-    nil
     nodejs
     nps
     onlyoffice-desktopeditors
@@ -105,7 +103,7 @@
     p7zip
     pgadmin4
     polkit_gnome
-    prefetch-npm-deps # see server.nix
+    prefetch-npm-deps
     proton-vpn
     qmk
     ripgrep
@@ -120,8 +118,6 @@
     zathura
     zig
     zoxide
-    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    #  wget
   ];
 
   programs.nh = {

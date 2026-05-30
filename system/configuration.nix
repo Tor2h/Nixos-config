@@ -35,7 +35,7 @@
   };
 
   services.displayManager.sddm = {
-    enable = true; # Enable SDDM.
+    enable = true;
     wayland.enable = true;
     enableHidpi = true;
   };
@@ -71,6 +71,8 @@
   # Enable automatic login for the user.
   services.displayManager.autoLogin.enable = true;
   services.displayManager.autoLogin.user = "tor";
+
+  security.sudo.wheelNeedsPassword = false;
 
   # # enable the nvidia video driver
   # services.xserver.videoDrivers = [ "nvidia" ];

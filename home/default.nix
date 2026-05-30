@@ -19,15 +19,14 @@
 
   # Add stuff for your user as you see fit:
   home.packages = with pkgs; [
+    awww
     btop
     ddcui
     ddcutil
-    dunst
     eza
     fastfetch
     feh
     font-awesome
-    ghostty
     gimp
     gnome-calculator
     harlequin
@@ -40,7 +39,6 @@
     lazydocker
     lazygit
     librewolf
-    lua
     mpd
     nerd-fonts.iosevka
     nvtopPackages.nvidia
@@ -59,9 +57,7 @@
     thunar-volman
     tumbler
     vim
-    virt-manager
     vlc
-    waybar
     wl-clipboard
     wlogout
     yazi
