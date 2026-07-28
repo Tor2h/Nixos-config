@@ -72,11 +72,11 @@
       }
 
       function fe() {
-        cd ~/rusty_note/frontend
+        cd ~/Projects/rusty_note/frontend
       }
 
       function be() {
-        cd ~/rusty_note/backend
+        cd ~/Projects/rusty_note/backend
       }
 
       export MANPAGER='nvim +Man!'

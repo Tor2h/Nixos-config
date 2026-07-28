@@ -28,11 +28,11 @@ hl.config({
     gaps_out    = 0,
     -- Replace these hex values with your Stylix base0D/base01 colors:
     col         = {
-      -- active_border   = "rgb(8ba4b0)", -- was config.lib.stylix.colors.base0D
-      -- inactive_border = "rgb(0d0c0c)", -- was config.lib.stylix.colors.base01
+      active_border   = "rgb(8ba4b0)", -- was config.lib.stylix.colors.base0D
+      inactive_border = "rgb(0d0c0c)", -- was config.lib.stylix.colors.base01
 
-      active_border   = "rgb(1f1f28)", -- was config.lib.stylix.colors.base0D
-      inactive_border = "rgb(f2ecbc)", -- was config.lib.stylix.colors.base01
+      -- active_border   = "rgb(1f1f28)", -- was config.lib.stylix.colors.base0D
+      -- inactive_border = "rgb(f2ecbc)", -- was config.lib.stylix.colors.base01
     },
   },
 

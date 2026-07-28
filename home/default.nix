@@ -23,13 +23,13 @@
     btop
     ddcui
     ddcutil
+    desmume
     eza
     fastfetch
     feh
     font-awesome
     gimp
     gnome-calculator
-    harlequin
     heroic
     hyprlock
     hyprpicker
@@ -39,7 +39,11 @@
     lazydocker
     lazygit
     librewolf
+    man-db
+    man-pages
+    melonds
     mpd
+    mpv
     nerd-fonts.iosevka
     nvtopPackages.nvidia
     pavucontrol
@@ -47,11 +51,15 @@
     pcsx2
     playerctl
     postgresql
+    proton-pass
+    proton-pass-cli
     qbittorrent
+    qbz
     qemu
     rofi-power-menu
     smile
     steam
+    steam-rom-manager
     steam-run
     thunar
     thunar-volman
@@ -61,6 +69,8 @@
     wl-clipboard
     wlogout
     yazi
+    youtube-tui
+    yt-dlp
   ];
   stylix.targets.rofi.enable = true;
 
