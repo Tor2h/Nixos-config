@@ -88,6 +88,7 @@
     # RPROMPT='%F{#${config.lib.stylix.colors.base0C}}''${vcs_info_msg_0_}'
     syntaxHighlighting.enable = true;
     autosuggestion.enable = true;
+    enableCompletion = true;
   };
   programs.starship = {
     enable = true;

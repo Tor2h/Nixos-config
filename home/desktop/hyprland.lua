@@ -111,7 +111,7 @@ hl.on("hyprland.start", function()
 end)
 
 -- ─── Program Launches ────────────────────────────────────────────────────────
-hl.bind(mod .. " + B", hl.dsp.exec_cmd("firefox"))
+hl.bind(mod .. " + B", hl.dsp.exec_cmd("librewolf"))
 hl.bind(secondMod .. " + period", hl.dsp.exec_cmd("smile"))
 hl.bind(mod .. " + SPACE", hl.dsp.exec_cmd("rofi -show drun -show-icons"))
 hl.bind(mod .. " + T", hl.dsp.exec_cmd("thunar"))
