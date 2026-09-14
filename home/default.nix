@@ -49,6 +49,8 @@
     pavucontrol
     pciutils
     pcsx2
+    nicotine-plus
+    mkvtoolnix
     playerctl
     postgresql
     proton-pass
