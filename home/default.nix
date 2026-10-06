@@ -19,6 +19,7 @@
 
   # Add stuff for your user as you see fit:
   home.packages = with pkgs; [
+    ani-cli
     awww
     btop
     ddcui
@@ -56,7 +57,6 @@
     proton-pass
     proton-pass-cli
     qbittorrent
-    qbz
     qemu
     rofi-power-menu
     smile

@@ -99,9 +99,7 @@
     nodejs
     nps
     onlyoffice-desktopeditors
-    openssl_3
     p7zip
-    pgadmin4
     polkit_gnome
     prefetch-npm-deps
     proton-vpn
