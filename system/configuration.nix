@@ -66,6 +66,30 @@
     '';
   };
 
+    nix.settings = {
+        substituters = [ "https://cuda-maintainers.cachix.org" ];
+        trusted-public-keys = [
+            "cuda-maintainers.cachix.org-1:0dq3bujKpuEPMCX6U4WylrUDZ9JyUG0VpVZa7CNfq5E="
+        ];
+    };
+
+    services.sunshine = {
+        enable = true;
+        package = pkgs.sunshine.override { 
+            cudaSupport = true; 
+            cudaPackages = pkgs.cudaPackages;
+        };
+        autoStart = false;
+        capSysAdmin = true;
+        openFirewall = true;
+    };
+
+    services.avahi = {
+        enable = true;
+        publish.enable = true;
+        publish.userServices = true;
+    };
+
   services.displayManager.defaultSession = "hyprland";
 
   # Enable automatic login for the user.
